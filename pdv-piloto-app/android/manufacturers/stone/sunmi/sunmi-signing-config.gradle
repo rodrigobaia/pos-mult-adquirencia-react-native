@@ -1,0 +1,21 @@
+def keystorePropertiesFile = rootProject.file("android/manufacturers/stone/sunmi/sunmi-keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    productFlavors {
+        sunmi {
+            dimension "model"
+            signingConfig signingConfigs.debug
+            versionNameSuffix "-sunmi"
+        }
+
+        sunmiSeriesP {
+            dimension "model"
+            signingConfig signingConfigs.debug
+            versionNameSuffix "-sunmiSeriesP"
+        }
+    }
+}

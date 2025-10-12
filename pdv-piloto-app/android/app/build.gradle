@@ -1,0 +1,353 @@
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+apply plugin: "kotlin-android"
+
+// Aplicar signing configs dos fabricantes ANTES das configurações
+// Comentado temporariamente para testar build básico
+// apply from: '../manufacturers/stone/gertec/gertec-signing-config.gradle'
+// apply from: '../manufacturers/stone/ingenico/ingenico-signing-config.gradle'
+// apply from: '../manufacturers/stone/positivo/positivo-signing-config.gradle'
+// apply from: '../manufacturers/stone/sunmi/sunmi-signing-config.gradle'
+// apply from: '../manufacturers/stone/tectoy/tectoy-signing-config.gradle'
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO DE ADQUIRENTES E FABRICANTES
+ * ============================================================================
+ * 
+ * Organização por adquirente para facilitar manutenção e escalabilidade
+ */
+
+// ===== STONE ADQUIRENTE =====
+def stoneManufacturers = [
+    'gertec': [
+        keystoreFile: '../manufacturers/stone/gertec/gertec-keystore.properties',
+        signingConfig: '../manufacturers/stone/gertec/gertec-signing-config.gradle'
+    ],
+    'ingenico': [
+        keystoreFile: '../manufacturers/stone/ingenico/ingenico-keystore.properties',
+        signingConfig: '../manufacturers/stone/ingenico/ingenico-signing-config.gradle'
+    ],
+    'positivo': [
+        keystoreFile: '../manufacturers/stone/positivo/positivo-keystore.properties',
+        signingConfig: '../manufacturers/stone/positivo/positivo-signing-config.gradle'
+    ],
+    'sunmi': [
+        keystoreFile: '../manufacturers/stone/sunmi/sunmi-keystore.properties',
+        signingConfig: '../manufacturers/stone/sunmi/sunmi-signing-config.gradle'
+    ],
+    'tectoy': [
+        keystoreFile: '../manufacturers/stone/tectoy/tectoy-keystore.properties',
+        signingConfig: '../manufacturers/stone/tectoy/tectoy-signing-config.gradle'
+    ]
+]
+
+// ===== CIELO ADQUIRENTE (FUTURO) =====
+def cieloManufacturers = [
+    // Exemplo para quando implementar Cielo:
+    // 'getnet': [
+    //     keystoreFile: '../manufacturers/cielo/getnet/getnet-keystore.properties',
+    //     signingConfig: '../manufacturers/cielo/getnet/getnet-signing-config.gradle'
+    // ],
+    // 'verifone': [
+    //     keystoreFile: '../manufacturers/cielo/verifone/verifone-keystore.properties',
+    //     signingConfig: '../manufacturers/cielo/verifone/verifone-signing-config.gradle'
+    // ]
+]
+
+// ===== PAGSEGURO ADQUIRENTE (FUTURO) =====
+def pagseguroManufacturers = [
+    // Exemplo para quando implementar PagSeguro:
+    // 'moderninha': [
+    //     keystoreFile: '../manufacturers/pagseguro/moderninha/moderninha-keystore.properties',
+    //     signingConfig: '../manufacturers/pagseguro/moderninha/moderninha-signing-config.gradle'
+    // ]
+]
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO CENTRALIZADA DE REPOSITÓRIOS
+ * ============================================================================
+ */
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO DE JSC (JavaScriptCore)
+ * ============================================================================
+ */
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO DE REPOSITÓRIOS (MOVIDO PARA build.gradle RAIZ)
+ * ============================================================================
+ * 
+ * Os repositórios agora estão configurados no build.gradle raiz em allprojects
+ * seguindo o padrão do Stone Demo:
+ * 
+ * - Stone PackageCloud (público)
+ * - Stone PackageCloud Internal
+ * - Sonatype Snapshots
+ * - Google/Maven Central
+ */
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO CENTRALIZADA DE DEPENDÊNCIAS
+ * ============================================================================
+ */
+
+// Dependências por adquirente (com versões centralizadas)
+def acquirerDependencies = [
+    'stone': [
+        "br.com.stone:stone-sdk:${rootProject.ext.stone_sdk_version}",
+        "br.com.stone:stone-sdk-posandroid:${rootProject.ext.stone_sdk_version}",
+        "br.com.stone:stone-sdk-posandroid-positivo:${rootProject.ext.stone_sdk_version}",
+        "br.com.stone:stone-sdk-posandroid-ingenico:${rootProject.ext.stone_sdk_version}",
+        "br.com.stone:stone-sdk-posandroid-sunmi:${rootProject.ext.stone_sdk_version}",
+        "br.com.stone:stone-sdk-posandroid-gertec:${rootProject.ext.stone_sdk_version}"
+    ],
+    'cielo': [
+        // Exemplo para Cielo:
+        // "br.com.cielo.sdk:cielo-sdk:${rootProject.ext.cielo_sdk_version}",
+        // "br.com.cielo.sdk:cielo-sdk-posandroid:${rootProject.ext.cielo_sdk_version}"
+    ],
+    'pagseguro': [
+        // Exemplo para PagSeguro:
+        // "br.com.pagseguro.sdk:pagseguro-sdk:${rootProject.ext.pagseguro_sdk_version}"
+    ]
+]
+
+/**
+ * Configuração Android
+ */
+android {
+    namespace "br.com.nebulasistemas.pdvpilotoapp"
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "br.com.nebulasistemas.pdvpilotoapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+    
+    /**
+     * Configuração de Java 17 (alinhado com Stone Demo)
+     */
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    
+    /**
+     * Configuração Kotlin
+     */
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+    
+    /**
+     * Packaging Options (alinhado com Stone Demo)
+     */
+    packagingOptions {
+        exclude 'META-INF/api_release.kotlin_module'
+        exclude 'META-INF/client_release.kotlin_module'
+    }
+
+    /**
+     * Product Flavors para diferentes fabricantes Stone
+     */
+    flavorDimensions "manufacturer"
+    productFlavors {
+        gertec {
+            dimension "manufacturer"
+            applicationIdSuffix ".gertec"
+            versionNameSuffix "-gertec"
+            buildConfigField "String", "STONE_MANUFACTURER", '"gertec"'
+        }
+        
+        ingenico {
+            dimension "manufacturer"
+            applicationIdSuffix ".ingenico"
+            versionNameSuffix "-ingenico"
+            buildConfigField "String", "STONE_MANUFACTURER", '"ingenico"'
+        }
+        
+        positivo {
+            dimension "manufacturer"
+            applicationIdSuffix ".positivo"
+            versionNameSuffix "-positivo"
+            buildConfigField "String", "STONE_MANUFACTURER", '"positivo"'
+        }
+        
+        sunmi {
+            dimension "manufacturer"
+            applicationIdSuffix ".sunmi"
+            versionNameSuffix "-sunmi"
+            buildConfigField "String", "STONE_MANUFACTURER", '"sunmi"'
+        }
+        
+        tectoy {
+            dimension "manufacturer"
+            applicationIdSuffix ".tectoy"
+            versionNameSuffix "-tectoy"
+            buildConfigField "String", "STONE_MANUFACTURER", '"tectoy"'
+        }
+    }
+
+    /**
+     * Build Types
+     */
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false
+        }
+        
+        release {
+            // Configuração de assinatura será aplicada dinamicamente por flavor
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    /**
+     * Configuração de assinatura dinâmica por fabricante
+     * Comentado temporariamente para build básico funcionar
+     */
+    // applicationVariants.all { variant ->
+    //     def manufacturer = variant.flavorName
+    //     def buildType = variant.buildType.name
+    //     
+    //     if (buildType == "release" && stoneManufacturers.containsKey(manufacturer)) {
+    //         def keystoreFile = stoneManufacturers[manufacturer].keystoreFile
+    //         def signingConfig = stoneManufacturers[manufacturer].signingConfig
+    //         
+    //         // Verificar se arquivos de configuração existem
+    //         if (file(keystoreFile).exists() && file(signingConfig).exists()) {
+    //             apply from: signingConfig
+    //             variant.buildType.signingConfig = signingConfigs[manufacturer]
+    //             println "✅ Configuração de assinatura aplicada para ${manufacturer}"
+    //         } else {
+    //             println "⚠️ Arquivos de configuração não encontrados para ${manufacturer}:"
+    //             println "   Keystore: ${keystoreFile}"
+    //             println "   Signing: ${signingConfig}"
+    //         }
+    //     }
+    // }
+
+    /**
+     * Source Sets - incluir código Stone SDK
+     */
+    sourceSets {
+        main {
+            java {
+                srcDirs += [
+                    '../../packages/stone-sdk/android/payment',
+                    '../../packages/stone-sdk/android/printer'
+                ]
+            }
+        }
+    }
+}
+
+/**
+ * ============================================================================
+ * REPOSITÓRIOS (REMOVIDO - AGORA EM build.gradle RAIZ)
+ * ============================================================================
+ * 
+ * Os repositórios foram movidos para o build.gradle raiz (allprojects)
+ * para seguir o padrão do Stone Demo e evitar duplicação.
+ */
+
+/**
+ * ============================================================================
+ * DEPENDÊNCIAS CENTRALIZADAS POR ADQUIRENTE
+ * ============================================================================
+ */
+dependencies {
+    // React Native
+    implementation("com.facebook.react:react-android")
+    
+    // Hermes Engine
+    if (hermesEnabled.toBoolean()) {
+        implementation("com.facebook.react:hermes-android")
+    } else {
+        implementation jscFlavor
+    }
+    
+    // Dependências comuns do Android
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    
+    // Dependências de Debug (alinhado com Stone Demo)
+    debugImplementation("br.com.stone.sdk.android:debugmode:4.0.3")
+    debugImplementation("com.github.tony19:logback-android:2.0.0")
+    
+    // Dependências por adquirente
+    acquirerDependencies.each { acquirer, deps ->
+        deps.each { dep ->
+            if (acquirer == 'stone') {
+                // Stone: aplicar a todas as variantes por enquanto
+                implementation(dep)
+                println "📦 Dependência ${acquirer.toUpperCase()}: ${dep}"
+            } else {
+                // Outros adquirentes: aplicar quando implementados
+                println "🚧 Dependência ${acquirer.toUpperCase()} (futuro): ${dep}"
+            }
+        }
+    }
+    
+    // Dependências específicas por fabricante (quando necessário)
+    stoneManufacturers.keySet().each { manufacturer ->
+        // Exemplo: dependências específicas por fabricante
+        // "${manufacturer}Implementation"("br.com.stone:stone-sdk-posandroid-${manufacturer}:4.8.7")
+        println "🏭 Fabricante ${manufacturer.toUpperCase()} configurado"
+    }
+}
+
+/**
+ * React Native Configuration
+ */
+react {
+    root = file("../../")
+    reactNativeDir = file("../../node_modules/react-native")
+    codegenDir = file("../../node_modules/react-native-codegen")
+    cliFile = file("../../node_modules/react-native/cli.js")
+
+    debuggableVariants = ["gertecDebug", "ingenicoDebug", "positivoDebug", "sunmiDebug", "tectoyDebug"]
+}
+
+// Comentado: native_modules.gradle não existe mais nesta versão do React Native
+// apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+
+/**
+ * ============================================================================
+ * COMO ADICIONAR NOVO ADQUIRENTE
+ * ============================================================================
+ * 
+ * 1. ADICIONAR REPOSITÓRIO:
+ *    - Editar a variável 'acquirerRepositories' (linha ~65)
+ *    - Adicionar: 'novo_adquirente': 'https://repo-url.com'
+ * 
+ * 2. ADICIONAR DEPENDÊNCIAS:
+ *    - Editar a variável 'acquirerDependencies' (linha ~78)
+ *    - Adicionar: 'novo_adquirente': ['dep1', 'dep2']
+ * 
+ * 3. ADICIONAR FABRICANTES:
+ *    - Criar pasta: android/manufacturers/novo_adquirente/
+ *    - Adicionar fabricantes na variável 'novoAdquirenteManufacturers'
+ * 
+ * 4. CRIAR SDK:
+ *    - Criar pasta: packages/novo_adquirente-sdk/
+ *    - Implementar providers TypeScript e Kotlin
+ * 
+ * 5. ATUALIZAR LÓGICA:
+ *    - Modificar condição na linha ~244 para incluir novo adquirente
+ *    - Adicionar flavors específicos se necessário
+ * 
+ * Exemplo completo em: android/manufacturers/README.md
+ */

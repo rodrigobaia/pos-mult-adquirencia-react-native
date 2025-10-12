@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Gradiente diagonal (roxo → laranja) -->
+    <item android:drawable="@drawable/gradient_diagonal"/>
+    
+    <!-- Logo centralizado -->
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash_logo"/>
+    </item>
+</layer-list>
+

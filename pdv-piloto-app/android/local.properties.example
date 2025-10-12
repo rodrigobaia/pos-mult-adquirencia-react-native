@@ -1,0 +1,37 @@
+## This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#sdk.dir=C\:\\Users\\YourUser\\AppData\\Local\\Android\\sdk
+
+# ============================================================================
+# STONE PACKAGECLOUD TOKENS
+# ============================================================================
+# Stone PackageCloud Token - Required to download SDK dependencies
+# Get your token from: https://packagecloud.io/stone/pos-android
+packageCloudReadToken=YOUR_STONE_TOKEN_HERE
+
+# Optional: Internal token (only if you have access to internal packages)
+#packageCloudReadTokenInternal=YOUR_INTERNAL_TOKEN_HERE
+
+# ============================================================================
+# FUTURE ACQUIRERS TOKENS (when implemented)
+# ============================================================================
+
+# Cielo Nexus Token (when Cielo is implemented)
+#cieloNexusToken=YOUR_CIELO_TOKEN_HERE
+
+# PagSeguro Nexus Token (when PagSeguro is implemented)  
+#pagseguroNexusToken=YOUR_PAGSEGURO_TOKEN_HERE
+
+# ============================================================================
+# OTHER CONFIGURATIONS
+# ============================================================================
+
+# Custom keystore paths (optional)
+#customKeystorePath=path/to/your/custom.keystore
+
+# Build configuration
+#buildEnvironment=development

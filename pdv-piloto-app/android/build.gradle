@@ -1,0 +1,63 @@
+buildscript {
+    ext {
+        // ===== VERSÕES ANDROID =====
+        buildToolsVersion = "36.0.0"
+        minSdkVersion = 24
+        compileSdkVersion = 36
+        targetSdkVersion = 36
+        ndkVersion = "27.1.12297006"
+        kotlinVersion = "2.1.21"
+        
+        // ===== VERSÕES ADQUIRENTES =====
+        stone_sdk_version = "4.13.0"
+        // cielo_sdk_version = "1.0.0"        // Futuro
+        // pagseguro_sdk_version = "1.0.0"    // Futuro
+        
+        // ===== CONFIGURAÇÃO LOCAL =====
+        localProp = new Properties()
+        fileName = 'local.properties'
+        if (project.rootProject.file(fileName).exists()) {
+            localProp.load(new FileInputStream(rootProject.file(fileName)))
+        }
+        
+        // ===== TOKENS DE ACESSO =====
+        // Stone PackageCloud
+        packageCloudReadToken = System.env.PACKAGECLOUD_READ_TOKEN != null ? 
+            System.env.PACKAGECLOUD_READ_TOKEN : 
+            localProp["packageCloudReadToken"] ?: ""
+        
+        packageCloudReadTokenInternal = System.env.PACKAGECLOUD_READ_TOKEN_INTERNAL ?: 
+            localProp["packageCloudReadTokenInternal"] ?: ""
+            
+        // Cielo (futuro)
+        // cieloNexusToken = System.env.CIELO_NEXUS_TOKEN ?: localProp["cieloNexusToken"] ?: ""
+        
+        // PagSeguro (futuro)
+        // pagseguroNexusToken = System.env.PAGSEGURO_NEXUS_TOKEN ?: localProp["pagseguroNexusToken"] ?: ""
+    }
+    
+    repositories {
+        google()
+        mavenCentral()
+    }
+    
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.12.1")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        
+        // ===== REPOSITÓRIOS STONE =====
+        maven { url "https://packagecloud.io/priv/${rootProject.ext.packageCloudReadToken}/stone/pos-android/maven2" }
+        maven { url "https://packagecloud.io/priv/${rootProject.ext.packageCloudReadTokenInternal}/stone/pos-android-internal/maven2" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    }
+}
+
+apply plugin: "com.facebook.react.rootproject"
