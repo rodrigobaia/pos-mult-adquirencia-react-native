@@ -422,6 +422,7 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 | [**🟢 Integração Stone**](./docs/integracao-stone.md) | Guia técnico completo da integração Stone | 30 min |
 | [**🔌 Adicionar Adquirente**](./docs/adicionar-adquirente.md) | Passo a passo para adicionar Cielo, PagSeguro, etc | 25 min |
 | [**🔧 Scripts de Build**](./docs/scripts-build.md) | Guia completo dos scripts de build e distribuição | 15 min |
+| [**🔐 Gerar Keystores**](./docs/gerar-keystores.md) | Como criar keystores para builds de produção | 10 min |
 
 ### 🎯 Quick Links - Começar Agora
 
@@ -433,7 +434,8 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 
 **Gerar APKs?**
 - 🔧 [Scripts de Build](./docs/scripts-build.md) - Gerar APKs debug e release
-- 📱 Distribuir da pasta `apks/`
+- 🔐 [Gerar Keystores](./docs/gerar-keystores.md) - Criar keystores para produção
+- 📱 Distribuir da pasta `apks/debug/` ou `apks/release/`
 
 **Desenvolver features?**
 - 💻 [Visão Geral](./docs/visao-geral-projeto.md) - Casos de uso e arquitetura
