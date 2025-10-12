@@ -33,8 +33,8 @@ BUILD_DIR="$APP_DIR/build/outputs/apk"
 MANUFACTURERS_DIR="$ANDROID_DIR/manufacturers"
 
 # Informações do app (lidas do build.gradle)
-VERSION_CODE=$(grep "versionCode" "$APP_DIR/build.gradle" | awk '{print $2}')
-VERSION_NAME=$(grep "versionName" "$APP_DIR/build.gradle" | awk '{print $2}' | tr -d '"')
+VERSION_CODE=$(grep "versionCode" "$APP_DIR/build.gradle" | grep -v "//" | head -1 | awk '{print $2}')
+VERSION_NAME=$(grep "versionName" "$APP_DIR/build.gradle" | grep -v "//" | head -1 | awk '{print $2}' | tr -d '"')
 
 # Fabricantes disponíveis por adquirente
 declare -A ACQUIRER_MANUFACTURERS
@@ -119,7 +119,7 @@ clean_build() {
 # Cria diretório de output
 prepare_output_dir() {
     local acquirer=$1
-    local output_dir="$PROJECT_ROOT/builds/release/$acquirer"
+    local output_dir="$PROJECT_ROOT/apks/release"
     
     print_info "Preparando diretório de output..."
     mkdir -p "$output_dir"
@@ -383,6 +383,12 @@ main() {
     list_apks "$output_dir"
     
     print_success "Build release concluído!"
+    
+    # Copiar APKs para pasta centralizada
+    echo ""
+    print_info "Copiando APKs para pasta centralizada..."
+    "$SCRIPT_DIR/copy-apks.sh"
+    
     echo ""
 }
 

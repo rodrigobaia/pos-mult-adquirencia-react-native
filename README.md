@@ -213,22 +213,23 @@ pdv-piloto-[adquirente]-v[versionCode]-[versionName]-[fabricante].apk
 ```
 pos-mult-adquirencia-react-native/
 │
-├── builds/                                    ← APKs organizados pelos scripts
+├── apks/                                     ← ⭐ APKs ORGANIZADOS (não versionado)
 │   │
-│   ├── debug/                                ← Builds DEBUG
+│   ├── debug/                                ← APKs DEBUG
 │   │   ├── pdv-piloto-stone-v1-1.0.0-gertec-debug.apk
 │   │   ├── pdv-piloto-stone-v1-1.0.0-ingenico-debug.apk
 │   │   ├── pdv-piloto-stone-v1-1.0.0-positivo-debug.apk
 │   │   ├── pdv-piloto-stone-v1-1.0.0-sunmi-debug.apk
-│   │   └── pdv-piloto-stone-v1-1.0.0-tectoy-debug.apk
+│   │   ├── pdv-piloto-stone-v1-1.0.0-tectoy-debug.apk
+│   │   └── pdv-piloto-cielo-v1-1.0.0-getnet-debug.apk  (futuro)
 │   │
-│   └── release/                              ← Builds RELEASE (assinados)
-│       └── stone/                            ← Por adquirente
-│           ├── pdv-piloto-stone-v1-1.0.0-gertec.apk
-│           ├── pdv-piloto-stone-v1-1.0.0-ingenico.apk
-│           ├── pdv-piloto-stone-v1-1.0.0-positivo.apk
-│           ├── pdv-piloto-stone-v1-1.0.0-sunmi.apk
-│           └── pdv-piloto-stone-v1-1.0.0-tectoy.apk
+│   └── release/                              ← APKs RELEASE (assinados)
+│       ├── pdv-piloto-stone-v1-1.0.0-gertec.apk
+│       ├── pdv-piloto-stone-v1-1.0.0-ingenico.apk
+│       ├── pdv-piloto-stone-v1-1.0.0-positivo.apk
+│       ├── pdv-piloto-stone-v1-1.0.0-sunmi.apk
+│       ├── pdv-piloto-stone-v1-1.0.0-tectoy.apk
+│       └── pdv-piloto-cielo-v1-1.0.0-getnet.apk       (futuro)
 │
 └── pdv-piloto-app/android/app/build/outputs/apk/  ← APKs do Gradle (build manual)
     ├── gertec/
@@ -258,31 +259,49 @@ pos-mult-adquirencia-react-native/
             └── app-tectoy-release.apk
 ```
 
-### Diferenças: Scripts vs Build Manual
+### 📊 Diferenças entre as Pastas
 
-| Característica | Scripts (`builds/`) | Build Manual Gradle (`android/app/build/`) |
-|----------------|---------------------|-------------------------------------------|
+| Característica | `apks/` ⭐ PRINCIPAL | Build Gradle (`android/app/build/`) |
+|----------------|---------------------|-----------------------------------|
+| **Propósito** | Centralizar APKs para distribuição | Output Gradle padrão |
 | **Nomenclatura** | Padronizada com versão | Padrão Android (`app-*.apk`) |
-| **Organização** | Por adquirente/tipo | Por fabricante/tipo |
-| **Versionamento** | Nome contém versão | Nome genérico |
+| **Organização** | debug/ e release/ separados | Por fabricante/tipo |
 | **Localização** | Raiz do projeto | Dentro de android/app/build |
-| **Deploy** | ✅ Pronto para produção | ⚠️ Requer renomeação |
-| **Uso** | **Recomendado** | Desenvolvimento/testes |
+| **Versionamento** | ✅ Nome com versão | ❌ Nome genérico |
+| **Deploy** | ✅ **RECOMENDADO** | ⚠️ Requer renomeação |
+| **Uso** | 🎯 **Distribuição** | Desenvolvimento |
+
+### 🎯 Qual Usar?
+
+- **`apks/debug/`** → ⭐ Use para **distribuir APKs debug** (testes, QA)
+- **`apks/release/`** → ⭐ Use para **distribuir APKs produção** (assinados)
+- **`android/app/build/`** → 🔧 Output automático do Gradle (desenvolvimento local)
 
 ### Exemplo Real
 
-Após executar `./scripts/build-debug.sh all`, você terá:
+Após executar `./scripts/build-stone-standalone.sh all`, você terá:
 
 ```bash
-builds/debug/
-├── pdv-piloto-stone-v1-1.0.0-gertec-debug.apk    (12.3 MB)
-├── pdv-piloto-stone-v1-1.0.0-ingenico-debug.apk  (12.5 MB)
-├── pdv-piloto-stone-v1-1.0.0-positivo-debug.apk  (12.4 MB)
-├── pdv-piloto-stone-v1-1.0.0-sunmi-debug.apk     (12.6 MB)
-└── pdv-piloto-stone-v1-1.0.0-tectoy-debug.apk    (12.3 MB)
+apks/debug/
+├── pdv-piloto-stone-v1-1.0.0-gertec-debug.apk    (110 MB)
+├── pdv-piloto-stone-v1-1.0.0-ingenico-debug.apk  (110 MB)
+├── pdv-piloto-stone-v1-1.0.0-positivo-debug.apk  (110 MB)
+├── pdv-piloto-stone-v1-1.0.0-sunmi-debug.apk     (110 MB)
+└── pdv-piloto-stone-v1-1.0.0-tectoy-debug.apk    (110 MB)
 ```
 
-**Para distribuir**: Envie o APK específico do fabricante do dispositivo.
+Após executar `./scripts/build-stone-release.sh all` (com keystores):
+
+```bash
+apks/release/
+├── pdv-piloto-stone-v1-1.0.0-gertec.apk          (45 MB)
+├── pdv-piloto-stone-v1-1.0.0-ingenico.apk        (45 MB)
+├── pdv-piloto-stone-v1-1.0.0-positivo.apk        (45 MB)
+├── pdv-piloto-stone-v1-1.0.0-sunmi.apk           (45 MB)
+└── pdv-piloto-stone-v1-1.0.0-tectoy.apk          (45 MB)
+```
+
+**Para distribuir**: Envie o APK específico do fabricante do dispositivo da pasta `apks/debug/` ou `apks/release/`.
 
 ---
 
@@ -306,12 +325,19 @@ pos-mult-adquirencia-react-native/
 │   ├── build-stone-release.sh         ← Build release Stone (Linux/Mac)
 │   └── build-stone-release.bat        ← Build release Stone (Windows)
 │
-├── builds/                            ← 📦 APKs gerados (não versionado)
-│   ├── debug/                         ← Builds debug
-│   └── release/                       ← Builds release por adquirente
-│       ├── stone/
-│       ├── cielo/                     (futuro)
-│       └── pagseguro/                 (futuro)
+├── apks/                              ← 📦 APKs organizados (não versionado)
+│   ├── debug/                         ← APKs debug
+│   │   ├── pdv-piloto-stone-v1-1.0.0-gertec-debug.apk
+│   │   ├── pdv-piloto-stone-v1-1.0.0-ingenico-debug.apk
+│   │   ├── pdv-piloto-stone-v1-1.0.0-positivo-debug.apk
+│   │   ├── pdv-piloto-stone-v1-1.0.0-sunmi-debug.apk
+│   │   └── pdv-piloto-stone-v1-1.0.0-tectoy-debug.apk
+│   │
+│   └── release/                       ← APKs release (assinados)
+│       ├── pdv-piloto-stone-v1-1.0.0-gertec.apk
+│       ├── pdv-piloto-stone-v1-1.0.0-ingenico.apk
+│       ├── pdv-piloto-cielo-v1-1.0.0-getnet.apk     (futuro)
+│       └── ...
 │
 ├── images/                            ← 🎨 Assets e ícones
 │   └── AppIcons/
@@ -395,6 +421,7 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 | [**🏗️ Arquitetura MonoRepo**](./docs/arquitetura-monorepo.md) | O que é MonoRepo, vantagens e referências | 20 min |
 | [**🟢 Integração Stone**](./docs/integracao-stone.md) | Guia técnico completo da integração Stone | 30 min |
 | [**🔌 Adicionar Adquirente**](./docs/adicionar-adquirente.md) | Passo a passo para adicionar Cielo, PagSeguro, etc | 25 min |
+| [**🔧 Scripts de Build**](./docs/scripts-build.md) | Guia completo dos scripts de build e distribuição | 15 min |
 
 ### 🎯 Quick Links - Começar Agora
 
@@ -403,6 +430,10 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 2. 🏗️ [Arquitetura MonoRepo](./docs/arquitetura-monorepo.md) - Entenda a estrutura
 3. 🟢 [Integração Stone](./docs/integracao-stone.md) - Veja como funciona
 4. 🔌 [Adicionar Adquirente](./docs/adicionar-adquirente.md) - Aprenda a expandir
+
+**Gerar APKs?**
+- 🔧 [Scripts de Build](./docs/scripts-build.md) - Gerar APKs debug e release
+- 📱 Distribuir da pasta `apks/`
 
 **Desenvolver features?**
 - 💻 [Visão Geral](./docs/visao-geral-projeto.md) - Casos de uso e arquitetura

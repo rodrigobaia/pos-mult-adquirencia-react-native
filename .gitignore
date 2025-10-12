@@ -137,3 +137,21 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# ============================================================================
+# PDV Piloto - APKs
+# ============================================================================
+
+# APKs gerados pelos scripts de build
+apks/
+*.apk
+*.aab
+
+# Keystores de release (sensíveis - NÃO versionar)
+*.keystore
+*.jks
+!debug.keystore
+
+# Arquivos de propriedades com senhas
+*-keystore.properties
+!*-keystore.properties.example

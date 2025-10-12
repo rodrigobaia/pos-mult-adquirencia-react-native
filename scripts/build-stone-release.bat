@@ -25,7 +25,7 @@ set MANUFACTURERS_DIR=%ANDROID_DIR%\manufacturers
 set ACQUIRER=stone
 set VERSION_CODE=1
 set VERSION_NAME=1.0.0
-set OUTPUT_DIR=%PROJECT_ROOT%\builds\release\%ACQUIRER%
+set OUTPUT_DIR=%PROJECT_ROOT%\apks\release
 
 REM Fabricantes Stone
 set MANUFACTURERS=gertec ingenico positivo sunmi tectoy
@@ -59,6 +59,11 @@ call :list_apks
 
 echo.
 echo [SUCCESS] Build release concluído!
+
+echo.
+echo [INFO] Copiando APKs para pasta centralizada...
+call "%SCRIPT_DIR%copy-apks.bat"
+
 echo.
 
 goto :end

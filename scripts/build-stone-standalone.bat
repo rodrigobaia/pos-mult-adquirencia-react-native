@@ -18,7 +18,7 @@ set PROJECT_ROOT=%SCRIPT_DIR%..
 set ANDROID_DIR=%PROJECT_ROOT%\pdv-piloto-app\android
 set APP_DIR=%ANDROID_DIR%\app
 set BUILD_DIR=%APP_DIR%\build\outputs\apk
-set OUTPUT_DIR=%PROJECT_ROOT%\builds\debug
+set OUTPUT_DIR=%PROJECT_ROOT%\apks\debug
 
 set ACQUIRER=stone
 set VERSION_CODE=1
@@ -56,6 +56,11 @@ call :list_apks
 
 echo.
 echo [SUCCESS] Build concluído!
+
+echo.
+echo [INFO] Copiando APKs para pasta centralizada...
+call "%SCRIPT_DIR%copy-apks.bat"
+
 echo.
 
 goto :end

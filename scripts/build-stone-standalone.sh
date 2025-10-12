@@ -26,12 +26,12 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 ANDROID_DIR="$PROJECT_ROOT/pdv-piloto-app/android"
 APP_DIR="$ANDROID_DIR/app"
 BUILD_DIR="$APP_DIR/build/outputs/apk"
-OUTPUT_DIR="$PROJECT_ROOT/builds/debug"
+OUTPUT_DIR="$PROJECT_ROOT/apks/debug"
 
 # Informações do app (lidas do build.gradle)
 ACQUIRER="stone"
-VERSION_CODE=$(grep "versionCode" "$APP_DIR/build.gradle" | awk '{print $2}')
-VERSION_NAME=$(grep "versionName" "$APP_DIR/build.gradle" | awk '{print $2}' | tr -d '"')
+VERSION_CODE=$(grep "versionCode" "$APP_DIR/build.gradle" | grep -v "//" | head -1 | awk '{print $2}')
+VERSION_NAME=$(grep "versionName" "$APP_DIR/build.gradle" | grep -v "//" | head -1 | awk '{print $2}' | tr -d '"')
 
 # Fabricantes disponíveis
 MANUFACTURERS=("gertec" "ingenico" "positivo" "sunmi" "tectoy")
@@ -238,6 +238,12 @@ main() {
     list_apks
     
     print_success "Build standalone concluído com sucesso!"
+    
+    # Copiar APKs para pasta centralizada
+    echo ""
+    print_info "Copiando APKs para pasta centralizada..."
+    "$SCRIPT_DIR/copy-apks.sh"
+    
     echo ""
 }
 
