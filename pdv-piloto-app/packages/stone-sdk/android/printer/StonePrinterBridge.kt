@@ -329,13 +329,16 @@ class StonePrinterBridge(private val reactContext: ReactApplicationContext) :
             val uriBuilder = Uri.Builder().apply {
                 authority("print")
                 scheme("printer-app")
-                appendQueryParameter("SHOW_FEEDBACK_SCREEN", "true")
+                // Para retornar direto ao app após imprimir, desabilitar a tela de feedback
+                appendQueryParameter("SHOW_FEEDBACK_SCREEN", "false")
                 appendQueryParameter("SCHEME_RETURN", "pdvpiloto_print_return")
                 appendQueryParameter("PRINTABLE_CONTENT", printContent)
             }
 
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                // Não manter a Activity da Stone no histórico para evitar tela em branco ao sair
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
                 data = uriBuilder.build()
             }
 

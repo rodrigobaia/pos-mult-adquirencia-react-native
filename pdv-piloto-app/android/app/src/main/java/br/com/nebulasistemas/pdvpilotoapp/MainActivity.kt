@@ -57,6 +57,23 @@ class MainActivity : ReactActivity() {
     
     // Tentar processar eventos pendentes imediatamente ao voltar ao foco
     pendingEventsHandler.post(processPendingEventsRunnable)
+    // Failsafe adicional: se a Activity tiver sido retomada a partir do app de impressão
+    // e a UI estiver em branco, reemitir o intent atual e trazer Activity ao topo
+    try {
+      intent?.data?.let { data ->
+        if (data.scheme == "pdvpiloto_print_return") {
+          val bringToFront = Intent(this@MainActivity, MainActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+          }
+          startActivity(bringToFront)
+          Log.d("MainActivity", "🛟 Failsafe bringToFront after print on onResume")
+        }
+      }
+    } catch (e: Exception) {
+      Log.e("MainActivity", "Failsafe error: ${e.message}")
+    }
   }
 
   override fun onPause() {
@@ -278,6 +295,19 @@ class MainActivity : ReactActivity() {
             Log.d("PrintTest", uri.toString())
             Log.d("StonePrinter", "Deep Link callback received: $uri")
             emitEvent("printReceived", uri.toString())
+
+            try {
+              // Trazer nossa activity para frente imediatamente após o retorno da impressão
+              val bringToFront = Intent(this@MainActivity, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+              }
+              startActivity(bringToFront)
+              Log.d("MainActivity", "📱 Brought MainActivity to foreground after print")
+            } catch (e: Exception) {
+              Log.e("MainActivity", "❌ Error bringing activity to front: ${e.message}")
+            }
           }
           else -> {
             Log.w("MainActivity", "❌ Unknown scheme: $scheme")

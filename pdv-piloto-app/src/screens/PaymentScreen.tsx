@@ -14,6 +14,7 @@ import {
 import { ValueInput } from '../components/ValueInput';
 import { PaymentButton } from '../components/PaymentButton';
 import { PaymentResultModal } from '../components/PaymentResultModal';
+import { AboutScreen } from './AboutScreen';
 import type { PaymentMethod } from '../components/PaymentButton';
 import { PaymentProviderFactory } from '../../packages/payment-core/src/factory/PaymentProviderFactory';
 import { PrinterProviderFactory } from '../../packages/payment-core/src/factory/PrinterProviderFactory';
@@ -30,6 +31,7 @@ export const PaymentScreen: React.FC = () => {
   const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null);
   const [lastPaymentAmount, setLastPaymentAmount] = useState<number>(0);
   const [lastPaymentType, setLastPaymentType] = useState<string>('');
+  const [showAbout, setShowAbout] = useState<boolean>(false);
   const appState = useRef(AppState.currentState);
   const processingTimeRef = useRef<number>(0);
   const confirmationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -404,8 +406,11 @@ export const PaymentScreen: React.FC = () => {
             resizeMode="contain"
           />
           <Text style={styles.title}>PDVFlow Piloto</Text>
-          <Text style={styles.subtitle}>Sistema de Pagamento Stone</Text>
-          <Text style={styles.version}>v{version}</Text>
+          <Text style={styles.subtitle}>Sistema de Pagamento Piloto</Text>
+          <Text style={styles.version}>Versão {version}</Text>
+          <Text style={styles.aboutLink} onPress={() => setShowAbout(true)}>
+            Sobre o aplicativo
+          </Text>
           {processing && (
             <Text style={styles.processing}>⏳ Processando no Stone...</Text>
           )}
@@ -448,17 +453,10 @@ export const PaymentScreen: React.FC = () => {
           </View>
         </View>
 
-        {/* Informações */}
+        {/* Informações essenciais (mantidas sucintas; demais detalhes no Sobre) */}
         <View style={styles.info}>
-          <Text style={styles.infoText}>
-            💡 Arquitetura MonoRepo Multi-Adquirência
-          </Text>
-          <Text style={styles.infoText}>
-            🏦 Adquirente ativa: Stone
-          </Text>
-          <Text style={styles.infoText}>
-            📱 Deep Link: pdvflow://payment
-          </Text>
+          <Text style={styles.infoText}>🏦 Adquirente ativa: Stone</Text>
+          <Text style={styles.infoText}>📱 Deep Link: pdvflow://payment</Text>
         </View>
       </ScrollView>
 
@@ -473,6 +471,13 @@ export const PaymentScreen: React.FC = () => {
           extras={paymentResult.extras}
           onNewSale={handleNewSale}
         />
+      )}
+
+      {/* Sobre - página inteira */}
+      {showAbout && (
+        <View style={styles.fullscreenOverlay}>
+          <AboutScreen onClose={() => setShowAbout(false)} />
+        </View>
       )}
     </SafeAreaView>
   );
@@ -514,6 +519,13 @@ const styles = StyleSheet.create({
     marginTop: 4,
     fontWeight: '400',
   },
+  aboutLink: {
+    fontSize: 15,
+    color: '#662D91',
+    marginTop: 8,
+    textAlign: 'center',
+    textDecorationLine: 'underline',
+  },
   processing: {
     fontSize: 14,
     color: '#F59E0B',
@@ -540,5 +552,13 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     marginBottom: 4,
     textAlign: 'center',
+  },
+  fullscreenOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: '#FFFFFF',
   },
 });

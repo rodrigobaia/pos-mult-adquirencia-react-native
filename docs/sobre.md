@@ -9,7 +9,11 @@
   
   <h3>Sistema Multi-Adquirência para Dispositivos POS</h3>
   
-  <p><strong>Versão 1.0.0 Release 1</strong></p>
+  <p><strong>Versão 1.0.0 Release 5</strong></p>
+  
+  <p>
+    <img src="../images/nebula-sistemas.png" alt="Nebula Sistemas" width="220"/>
+  </p>
 </div>
 
 ---
@@ -52,7 +56,7 @@ Criar um **ecossistema tecnológico** que:
 
 ---
 
-## 🏢 Sobre a Nebula Sistemas
+## 🏢 Fabricante: Nebula Sistemas
 
 <div align="center">
   <h3>Nebula Sistemas - Soluções Tecnológicas Inovadoras</h3>
@@ -62,6 +66,12 @@ Criar um **ecossistema tecnológico** que:
 
 **Nebula Sistemas Ltda**  
 📍 Betim, Minas Gerais - Brasil
+
+**Contato do Fabricante**
+
+- 🌐 Website: https://nebulasistemas.com.br
+- 📧 E-mail: suporte@nebulasistemas.com.br
+- 📞 Telefone/WhatsApp: (31) 98440-0157
 
 ### 🎯 Missão
 
@@ -113,7 +123,7 @@ Desenvolver soluções tecnológicas inovadoras que simplifiquem processos compl
 
 ### Versão Atual
 
-**1.0.0 Release 1**
+**1.0.0 Release 5**
 
 ### Stack Tecnológica
 
