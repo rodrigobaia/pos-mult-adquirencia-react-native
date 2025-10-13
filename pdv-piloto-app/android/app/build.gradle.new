@@ -1,0 +1,197 @@
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+apply plugin: "kotlin-android"
+
+/**
+ * ============================================================================
+ * CONFIGURAÇÃO DE ADQUIRENTES - ARQUITETURA MONO-ADQUIRENTE
+ * ============================================================================
+ * 
+ * Cada APK é compilado para UMA ÚNICA adquirente:
+ * - stone: APK para dispositivos Stone
+ * - cielo: APK para dispositivos Cielo LIO
+ * 
+ * Fabricantes são sub-flavors dentro de cada adquirente
+ */
+
+// Configuração de adquirentes
+def acquirers = [
+    'stone': [
+        name: 'Stone',
+        packageSuffix: 'stone',
+        manufacturers: ['gertec', 'ingenico', 'positivo', 'sunmi', 'tectoy']
+    ],
+    'cielo': [
+        name: 'Cielo',
+        packageSuffix: 'cielo', 
+        manufacturers: ['getnet', 'rede', 'pagseguro'] // Exemplo para futuro
+    ]
+]
+
+android {
+    namespace "br.com.nebulasistemas.pdvpilotoapp"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "br.com.nebulasistemas.pdvpilotoapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    // Product Flavors por Adquirente
+    flavorDimensions "acquirer", "manufacturer"
+    
+    productFlavors {
+        // ===== STONE ADQUIRENTE =====
+        stone {
+            dimension "acquirer"
+            applicationIdSuffix ".stone"
+            versionNameSuffix "-stone"
+            
+            buildConfigField "String", "ACQUIRER_NAME", '"Stone"'
+            buildConfigField "String", "ACQUIRER_TYPE", '"stone"'
+            buildConfigField "boolean", "ENABLE_STONE", "true"
+            buildConfigField "boolean", "ENABLE_CIELO", "false"
+        }
+        
+        // ===== CIELO ADQUIRENTE =====
+        cielo {
+            dimension "acquirer"
+            applicationIdSuffix ".cielo"
+            versionNameSuffix "-cielo"
+            
+            buildConfigField "String", "ACQUIRER_NAME", '"Cielo"'
+            buildConfigField "String", "ACQUIRER_TYPE", '"cielo"'
+            buildConfigField "boolean", "ENABLE_STONE", "false"
+            buildConfigField "boolean", "ENABLE_CIELO", "true"
+        }
+        
+        // ===== FABRICANTES STONE =====
+        gertec {
+            dimension "manufacturer"
+            applicationIdSuffix ".gertec"
+            versionNameSuffix "-gertec"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"Gertec"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"gertec"'
+        }
+        
+        ingenico {
+            dimension "manufacturer"
+            applicationIdSuffix ".ingenico"
+            versionNameSuffix "-ingenico"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"Ingenico"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"ingenico"'
+        }
+        
+        positivo {
+            dimension "manufacturer"
+            applicationIdSuffix ".positivo"
+            versionNameSuffix "-positivo"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"Positivo"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"positivo"'
+        }
+        
+        sunmi {
+            dimension "manufacturer"
+            applicationIdSuffix ".sunmi"
+            versionNameSuffix "-sunmi"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"Sunmi"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"sunmi"'
+        }
+        
+        tectoy {
+            dimension "manufacturer"
+            applicationIdSuffix ".tectoy"
+            versionNameSuffix "-tectoy"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"Tectoy"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"tectoy"'
+        }
+        
+        // ===== FABRICANTES CIELO (FUTURO) =====
+        getnet {
+            dimension "manufacturer"
+            applicationIdSuffix ".getnet"
+            versionNameSuffix "-getnet"
+            
+            buildConfigField "String", "MANUFACTURER_NAME", '"GetNet"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"getnet"'
+        }
+    }
+
+    // Configurações de Build
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    // Configurações de Compilação
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    // Configurações de Pacote
+    packagingOptions {
+        pickFirst "**/libc++_shared.so"
+        pickFirst "**/libjsc.so"
+    }
+}
+
+// Dependências
+dependencies {
+    implementation "com.facebook.react:react-android"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    
+    // Dependências específicas por adquirente
+    stoneImplementation project(':stone-sdk')
+    cieloImplementation project(':cielo-sdk')
+}
+
+// Configurações específicas por flavor
+android.applicationVariants.all { variant ->
+    def acquirer = variant.flavorName.split('')[0] // Primeira parte do flavor
+    def manufacturer = variant.flavorName.split('')[1] // Segunda parte do flavor
+    
+    // Configurar nome do APK
+    variant.outputs.all { output ->
+        def versionName = variant.versionName
+        def versionCode = variant.versionCode
+        outputFileName = "pdv-piloto-${acquirer}-v${versionCode}-${versionName}-${manufacturer}-${variant.buildType.name}.apk"
+    }
+    
+    // Aplicar signing configs específicos
+    if (variant.buildType.name == 'release') {
+        def keystoreFile = "../manufacturers/${acquirer}/${manufacturer}/${manufacturer}-keystore.properties"
+        def keystoreProps = new Properties()
+        
+        if (file(keystoreFile).exists()) {
+            keystoreProps.load(new FileInputStream(file(keystoreFile)))
+            
+            variant.buildType.signingConfig = android.signingConfigs.create("${acquirer}${manufacturer}Release") {
+                storeFile file("../manufacturers/${acquirer}/${manufacturer}/${keystoreProps['storeFile']}")
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
+    }
+}

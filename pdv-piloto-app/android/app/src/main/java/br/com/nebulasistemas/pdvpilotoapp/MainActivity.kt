@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Base64
 import android.util.Log
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -287,11 +288,11 @@ class MainActivity : ReactActivity() {
         // Determinar o tipo de callback baseado no scheme
         when (scheme) {
           "stone_payment_scheme" -> {
-            Log.d("MainActivity", "✅ Payment callback detected")
+            Log.d("MainActivity", "✅ Stone Payment callback detected")
             emitEvent("paymentReceived", uri.toString())
           }
           "pdvpiloto_print_return" -> {
-            Log.d("MainActivity", "✅ Print callback detected")
+            Log.d("MainActivity", "✅ Stone Print callback detected")
             Log.d("PrintTest", uri.toString())
             Log.d("StonePrinter", "Deep Link callback received: $uri")
             emitEvent("printReceived", uri.toString())
@@ -309,6 +310,14 @@ class MainActivity : ReactActivity() {
               Log.e("MainActivity", "❌ Error bringing activity to front: ${e.message}")
             }
           }
+          "order" -> {
+            Log.d("MainActivity", "✅ Cielo LIO callback detected")
+            handleCieloResponse(uri)
+          }
+          "cielo" -> {
+            Log.d("MainActivity", "✅ Cielo LIO alternative callback detected")
+            handleCieloResponse(uri)
+          }
           else -> {
             Log.w("MainActivity", "❌ Unknown scheme: $scheme")
             Log.d("PrintTest", "Unknown scheme callback: $uri")
@@ -321,6 +330,49 @@ class MainActivity : ReactActivity() {
 
     } catch (e: Exception) {
       Log.e("MainActivity", "❌ Error processing Deep Link: ${e.message}", e)
+    }
+  }
+
+  /**
+   * Processa resposta da Cielo LIO
+   */
+  private fun handleCieloResponse(uri: android.net.Uri) {
+    try {
+      Log.d("MainActivity", "🔄 Processing Cielo response")
+      
+      val response = uri.getQueryParameter("response")
+      val responseCode = uri.getQueryParameter("responsecode")
+      
+      Log.d("MainActivity", "Cielo Response: $response")
+      Log.d("MainActivity", "Cielo Response Code: $responseCode")
+      
+      if (response != null) {
+        // Decodificar Base64
+        val decodedData = Base64.decode(response, Base64.DEFAULT)
+        val jsonResponse = String(decodedData)
+        
+        Log.d("MainActivity", "Cielo JSON Response: $jsonResponse")
+        
+        // Criar dados estruturados para o evento
+        val eventData = """
+          {
+            "response": "$jsonResponse",
+            "responseCode": "$responseCode",
+            "source": "cielo",
+            "rawUri": "${uri.toString()}"
+          }
+        """.trimIndent()
+        
+        // Emitir evento para React Native
+        emitEvent("CieloPaymentResponse", eventData)
+        
+        Log.d("MainActivity", "✅ Cielo response event emitted")
+      } else {
+        Log.w("MainActivity", "⚠️ No response parameter in Cielo URI")
+      }
+      
+    } catch (e: Exception) {
+      Log.e("MainActivity", "❌ Error processing Cielo response: ${e.message}", e)
     }
   }
 

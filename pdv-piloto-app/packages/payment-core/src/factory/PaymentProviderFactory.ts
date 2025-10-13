@@ -17,28 +17,37 @@ export enum AcquirerType {
  * Centraliza a criação de providers de pagamento por adquirente
  */
 export class PaymentProviderFactory {
-  private static activeAcquirer: AcquirerType = AcquirerType.STONE;
   private static providers: Map<AcquirerType, IPaymentProvider> = new Map();
   
   /**
-   * Define qual adquirente está ativa
-   */
-  static setActive(acquirer: AcquirerType): void {
-    this.activeAcquirer = acquirer;
-  }
-  
-  /**
-   * Retorna a adquirente ativa atual
+   * Retorna a adquirente configurada em tempo de compilação
+   * Esta informação vem do BuildConfig do Android
    */
   static getActiveAcquirer(): AcquirerType {
-    return this.activeAcquirer;
+    // Em tempo de compilação, apenas uma adquirente estará habilitada
+    // Isso é definido no build.gradle via BuildConfig
+    try {
+      // Verificar se Stone está habilitada (definido em build.gradle)
+      const { NativeModules } = require('react-native');
+      if (NativeModules.BuildConfig?.ENABLE_STONE) {
+        return AcquirerType.STONE;
+      }
+      if (NativeModules.BuildConfig?.ENABLE_CIELO) {
+        return AcquirerType.CIELO;
+      }
+    } catch (error) {
+      console.warn('PaymentProviderFactory: BuildConfig não disponível, usando Stone como padrão');
+    }
+    
+    // Fallback para Stone (padrão)
+    return AcquirerType.STONE;
   }
   
   /**
-   * Retorna o provider da adquirente ativa
+   * Retorna o provider da adquirente ativa (configurada em compilação)
    */
   static getActive(): IPaymentProvider {
-    return this.getProvider(this.activeAcquirer);
+    return this.getProvider(this.getActiveAcquirer());
   }
   
   /**
@@ -99,8 +108,9 @@ export class PaymentProviderFactory {
         return new StonePaymentProvider();
         
       case AcquirerType.CIELO:
-        // TODO: Implementar quando Cielo estiver pronto
-        throw new Error('Cielo provider not implemented yet');
+        // Lazy load do módulo Cielo
+        const { CieloPaymentProvider } = require('../../../cielo-sdk/typescript/CieloPaymentProvider');
+        return new CieloPaymentProvider();
         
       case AcquirerType.PAGSEGURO:
         // TODO: Implementar quando PagSeguro estiver pronto

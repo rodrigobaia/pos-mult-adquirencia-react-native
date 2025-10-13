@@ -54,7 +54,8 @@ export class PrinterProviderFactory {
         return new StonePrinterProvider();
         
       case AcquirerType.CIELO:
-        throw new Error('Cielo printer provider not implemented yet');
+        const { CieloPrinterProvider } = require('../../../cielo-sdk/typescript/CieloPrinterProvider');
+        return new CieloPrinterProvider();
         
       case AcquirerType.PAGSEGURO:
         throw new Error('PagSeguro printer provider not implemented yet');

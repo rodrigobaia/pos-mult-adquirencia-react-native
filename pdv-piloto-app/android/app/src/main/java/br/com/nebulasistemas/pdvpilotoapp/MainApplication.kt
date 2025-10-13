@@ -10,8 +10,15 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 
-// Import Stone package
+// Import BuildConfig bridge
+import br.com.nebulasistemas.pdvpilotoapp.paymentcore.BuildConfigPackage
+
+// Import Stone package (apenas se habilitado)
 import br.com.pdvflow.stone.StonePackage
+
+// Import Cielo packages (apenas se habilitado)
+import br.com.nebulasistemas.pdvpilotoapp.cielo.CieloPackage
+import br.com.nebulasistemas.pdvpilotoapp.cielo.printer.CieloPrinterPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -19,8 +26,18 @@ class MainApplication : Application(), ReactApplication {
       object : DefaultReactNativeHost(this) {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
-              // Adicionar Stone SDK Package (inclui Payment + Printer)
-              add(StonePackage())
+              // Adicionar BuildConfig bridge (sempre)
+              add(BuildConfigPackage())
+              
+              // Adicionar apenas a adquirente habilitada em tempo de compilação
+              if (BuildConfig.ENABLE_STONE) {
+                add(StonePackage())
+              }
+              
+              if (BuildConfig.ENABLE_CIELO) {
+                add(CieloPackage())
+                add(CieloPrinterPackage())
+              }
             }
 
         override fun getJSMainModuleName(): String = "index"

@@ -16,7 +16,7 @@ import { PaymentButton } from '../components/PaymentButton';
 import { PaymentResultModal } from '../components/PaymentResultModal';
 import { AboutScreen } from './AboutScreen';
 import type { PaymentMethod } from '../components/PaymentButton';
-import { PaymentProviderFactory } from '../../packages/payment-core/src/factory/PaymentProviderFactory';
+import { PaymentProviderFactory, AcquirerType } from '../../packages/payment-core/src/factory/PaymentProviderFactory';
 import { PrinterProviderFactory } from '../../packages/payment-core/src/factory/PrinterProviderFactory';
 import { PaymentType } from '../../packages/payment-core/src/models/PaymentTypes';
 import type { PaymentResult } from '../../packages/payment-core/src/models/PaymentTypes';
@@ -453,10 +453,11 @@ export const PaymentScreen: React.FC = () => {
           </View>
         </View>
 
+
         {/* Informações essenciais (mantidas sucintas; demais detalhes no Sobre) */}
         <View style={styles.info}>
-          <Text style={styles.infoText}>🏦 Adquirente ativa: Stone</Text>
-          <Text style={styles.infoText}>📱 Deep Link: pdvflow://payment</Text>
+          <Text style={styles.infoText}>🏦 Adquirente ativa: {PaymentProviderFactory.getActiveAcquirer()}</Text>
+          <Text style={styles.infoText}>📱 Deep Link: {PaymentProviderFactory.getActiveAcquirer() === AcquirerType.STONE ? 'stone_payment_scheme://pay-response' : 'lio://payment'}</Text>
         </View>
       </ScrollView>
 
@@ -538,6 +539,21 @@ const styles = StyleSheet.create({
   buttonRow: {
     flexDirection: 'row',
     marginBottom: 16,
+  },
+  acquirerSwitch: {
+    marginBottom: 16,
+  },
+  switchButton: {
+    backgroundColor: '#8B5CF6',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  switchButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
   },
   info: {
     alignItems: 'center',

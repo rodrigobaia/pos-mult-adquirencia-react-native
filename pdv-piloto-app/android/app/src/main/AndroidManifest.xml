@@ -30,6 +30,11 @@
       android:supportsRtl="true"
       tools:replace="android:allowBackup,android:appComponentFactory">
       
+      <!-- Meta-data para Cielo LIO Smart (obrigatório) -->
+      <meta-data
+          android:name="cs_integration_type"
+          android:value="uri" />
+      
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -57,6 +62,26 @@
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="pdvpiloto_print_return" />
         </intent-filter>
+        
+        <!-- Deep Link para receber retorno da Cielo LIO -->
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:host="response" android:scheme="order" />
+        </intent-filter>
+      </activity>
+      
+      <!-- Activity para receber respostas da Cielo LIO (alternativa) -->
+      <activity android:name=".CieloResponseActivity"
+          android:exported="true"
+          android:launchMode="singleTop">
+          <intent-filter>
+              <action android:name="android.intent.action.VIEW" />
+              <category android:name="android.intent.category.DEFAULT" />
+              <category android:name="android.intent.category.BROWSABLE" />
+              <data android:host="response" android:scheme="cielo" />
+          </intent-filter>
       </activity>
     </application>
 </manifest>

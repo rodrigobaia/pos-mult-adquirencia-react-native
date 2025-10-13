@@ -2,14 +2,6 @@ apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 apply plugin: "kotlin-android"
 
-// Aplicar signing configs dos fabricantes ANTES das configurações
-// Comentado temporariamente para testar build básico
-// apply from: '../manufacturers/stone/gertec/gertec-signing-config.gradle'
-// apply from: '../manufacturers/stone/ingenico/ingenico-signing-config.gradle'
-// apply from: '../manufacturers/stone/positivo/positivo-signing-config.gradle'
-// apply from: '../manufacturers/stone/sunmi/sunmi-signing-config.gradle'
-// apply from: '../manufacturers/stone/tectoy/tectoy-signing-config.gradle'
-
 /**
  * ============================================================================
  * CONFIGURAÇÃO DE ADQUIRENTES E FABRICANTES
