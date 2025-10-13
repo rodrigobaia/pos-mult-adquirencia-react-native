@@ -1,11 +1,21 @@
 # 🚀 PDV Piloto - Sistema Multi-Adquirência
 
-[![React Native](https://img.shields.io/badge/React%20Native-0.81.4-blue.svg)](https://reactnative.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
-[![Stone SDK](https://img.shields.io/badge/Stone%20SDK-4.13.0-green.svg)](https://sdkandroid.stone.com.br/)
-[![License](https://img.shields.io/badge/License-Proprietary-red.svg)]()
+<div align="center">
+  <img src="./images/logo-pdv-piloto.png" alt="PDV Piloto Logo" width="400"/>
+  
+  <p><strong>Versão 1.0.0 Release 1</strong></p>
+  
+  [![React Native](https://img.shields.io/badge/React%20Native-0.81.4-blue.svg)](https://reactnative.dev/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue.svg)](https://www.typescriptlang.org/)
+  [![Stone SDK](https://img.shields.io/badge/Stone%20SDK-4.13.0-green.svg)](https://sdkandroid.stone.com.br/)
+  [![License](https://img.shields.io/badge/License-Proprietary-red.svg)]()
+</div>
+
+---
 
 > Sistema de PDV (Ponto de Venda) modular e escalável que suporta múltiplas adquirentes de pagamento através de uma arquitetura unificada.
+
+**[📖 Sobre o Projeto](./docs/sobre.md)** | **[🏢 Sobre a Nebula Sistemas](./docs/sobre.md#sobre-a-nebula-sistemas)**
 
 ---
 
@@ -417,6 +427,7 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 
 | Documento | Descrição | Leitura |
 |-----------|-----------|---------|
+| [**📖 Sobre o Projeto**](./docs/sobre.md) | História, equipe e informações da Nebula Sistemas | 10 min |
 | [**📘 Visão Geral do Projeto**](./docs/visao-geral-projeto.md) | Proposta, problemas que resolve e casos de uso | 15 min |
 | [**🏗️ Arquitetura MonoRepo**](./docs/arquitetura-monorepo.md) | O que é MonoRepo, vantagens e referências | 20 min |
 | [**🟢 Integração Stone**](./docs/integracao-stone.md) | Guia técnico completo da integração Stone | 30 min |
@@ -427,10 +438,11 @@ Acesse a documentação detalhada em [`docs/`](./docs/):
 ### 🎯 Quick Links - Começar Agora
 
 **Novo no projeto?** Leia nesta ordem:
-1. 📘 [Visão Geral do Projeto](./docs/visao-geral-projeto.md) - Entenda o propósito
-2. 🏗️ [Arquitetura MonoRepo](./docs/arquitetura-monorepo.md) - Entenda a estrutura
-3. 🟢 [Integração Stone](./docs/integracao-stone.md) - Veja como funciona
-4. 🔌 [Adicionar Adquirente](./docs/adicionar-adquirente.md) - Aprenda a expandir
+1. 📖 [Sobre o Projeto](./docs/sobre.md) - Conheça o projeto e a Nebula Sistemas
+2. 📘 [Visão Geral do Projeto](./docs/visao-geral-projeto.md) - Entenda o propósito
+3. 🏗️ [Arquitetura MonoRepo](./docs/arquitetura-monorepo.md) - Entenda a estrutura
+4. 🟢 [Integração Stone](./docs/integracao-stone.md) - Veja como funciona
+5. 🔌 [Adicionar Adquirente](./docs/adicionar-adquirente.md) - Aprenda a expandir
 
 **Gerar APKs?**
 - 🔧 [Scripts de Build](./docs/scripts-build.md) - Gerar APKs debug e release
@@ -492,6 +504,15 @@ Para suporte técnico:
 
 ## 🏆 Créditos
 
+### 🏢 Criado por Nebula Sistemas
+
+**[📖 Saiba mais sobre a Nebula Sistemas e o projeto](./docs/sobre.md)**
+
+- **Empresa**: Nebula Sistemas Ltda
+- **Localização**: Betim, Minas Gerais - Brasil
+- **Website**: www.nebulasistemas.com.br
+- **Email**: suporte@nebulasistemas.com.br
+
 ### Equipe de Desenvolvimento
 
 - **Arquitetura**: Rodrigo Baia
@@ -509,7 +530,8 @@ Este projeto foi construído com:
 
 ---
 
-**Desenvolvido com ❤️ pela equipe Nebula Sistemas**
+**Desenvolvido com ❤️ pela equipe Nebula Sistemas**  
+**Betim, MG - Brasil • © 2025**
 
 ---
 

@@ -7,6 +7,9 @@ import {
   Alert,
   ScrollView,
   AppState,
+  Image,
+  NativeModules,
+  DeviceEventEmitter,
 } from 'react-native';
 import { ValueInput } from '../components/ValueInput';
 import { PaymentButton } from '../components/PaymentButton';
@@ -16,6 +19,9 @@ import { PaymentProviderFactory } from '../../packages/payment-core/src/factory/
 import { PrinterProviderFactory } from '../../packages/payment-core/src/factory/PrinterProviderFactory';
 import { PaymentType } from '../../packages/payment-core/src/models/PaymentTypes';
 import type { PaymentResult } from '../../packages/payment-core/src/models/PaymentTypes';
+
+const { StoneBridge } = NativeModules;
+const { version } = require('../../package.json');
 
 export const PaymentScreen: React.FC = () => {
   const [value, setValue] = useState<string>('');
@@ -27,6 +33,36 @@ export const PaymentScreen: React.FC = () => {
   const appState = useRef(AppState.currentState);
   const processingTimeRef = useRef<number>(0);
   const confirmationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // 🆕 Buscar eventos pendentes do SharedPreferences ao inicializar
+  useEffect(() => {
+    const checkPendingEvents = async () => {
+      try {
+        console.log('🔍 Checking for pending payment events from SharedPreferences...');
+        const result = await StoneBridge.getPendingPaymentEvent();
+        
+        if (result.hasPendingEvent) {
+          console.log('📥 Found pending event! Emitting:', result.eventData);
+          
+          // Emitir evento via DeviceEventEmitter
+          // Os listeners já registrados do StonePaymentProvider vão capturar
+          DeviceEventEmitter.emit('paymentReceived', result.eventData);
+          console.log('✅ Pending event emitted successfully');
+        } else {
+          console.log('✅ No pending payment events');
+        }
+      } catch (error) {
+        console.log('❌ Error checking pending events:', error);
+      }
+    };
+    
+    // Verificar após pequeno delay para garantir que listeners estejam prontos
+    const timer = setTimeout(() => {
+      checkPendingEvents();
+    }, 1000); // 1 segundo para garantir que listeners estejam registrados
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   // Registrar listener para resultado de pagamento
   useEffect(() => {
@@ -362,8 +398,14 @@ export const PaymentScreen: React.FC = () => {
       <ScrollView contentContainerStyle={styles.content}>
         {/* Header */}
         <View style={styles.header}>
+          <Image
+            source={require('../../assets/logo-pdv-piloto.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
           <Text style={styles.title}>PDVFlow Piloto</Text>
           <Text style={styles.subtitle}>Sistema de Pagamento Stone</Text>
+          <Text style={styles.version}>v{version}</Text>
           {processing && (
             <Text style={styles.processing}>⏳ Processando no Stone...</Text>
           )}
@@ -449,6 +491,11 @@ const styles = StyleSheet.create({
     marginBottom: 32,
     paddingTop: 20,
   },
+  logo: {
+    width: 200,
+    height: 80,
+    marginBottom: 16,
+  },
   title: {
     fontSize: 28,
     fontWeight: '700',
@@ -459,6 +506,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#6B7280',
     fontWeight: '500',
+  },
+  version: {
+    fontSize: 12,
+    color: '#9CA3AF',
+    marginTop: 4,
+    fontWeight: '400',
   },
   processing: {
     fontSize: 14,

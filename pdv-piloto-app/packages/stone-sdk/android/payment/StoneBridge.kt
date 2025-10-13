@@ -1,5 +1,6 @@
 package br.com.pdvflow.stone
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import com.facebook.react.bridge.*
@@ -98,6 +99,39 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
             promise.resolve(info)
         } catch (e: Exception) {
             promise.reject("INFO_ERROR", e.message, e)
+        }
+    }
+    
+    /**
+     * Busca evento de pagamento pendente salvo no SharedPreferences
+     * Chamado pelo JavaScript quando estiver pronto
+     */
+    @ReactMethod
+    fun getPendingPaymentEvent(promise: Promise) {
+        try {
+            val prefs = reactContext.getSharedPreferences("PDVPilotoEvents", Context.MODE_PRIVATE)
+            val eventName = prefs.getString("pending_event_name", null)
+            val eventData = prefs.getString("pending_event_data", null)
+            
+            if (eventName != null && eventData != null && eventName == "paymentReceived") {
+                android.util.Log.d("StoneBridge", "📥 Found pending payment event: $eventData")
+                
+                // Retornar evento e limpar
+                prefs.edit().remove("pending_event_name").remove("pending_event_data").apply()
+                
+                val result = Arguments.createMap().apply {
+                    putBoolean("hasPendingEvent", true)
+                    putString("eventData", eventData)
+                }
+                promise.resolve(result)
+            } else {
+                val result = Arguments.createMap().apply {
+                    putBoolean("hasPendingEvent", false)
+                }
+                promise.resolve(result)
+            }
+        } catch (e: Exception) {
+            promise.reject("GET_PENDING_ERROR", e.message, e)
         }
     }
 }

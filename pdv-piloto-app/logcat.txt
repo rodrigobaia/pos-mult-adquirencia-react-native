@@ -1,0 +1,1435 @@
+--------- beginning of system
+10-12 15:53:56.639   974  1015 V DisplayPowerController: Brightness [0.9409449] reason changing to: 'manual', previous reason: 'manual [ dim ]'.
+10-12 15:53:56.822   974   987 V SettingsProvider: packageValueForCallResult, name = sound_effects_enabled, value : Bundle[{_track_generation=android.util.MemoryIntArray@7f, value=1, _generation_index=3, _generation=33}]
+10-12 15:53:56.878   974  2242 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 15:54:01.089   974   987 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=115&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760295241081 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 15:54:01.131   974  1401 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (13033900)
+10-12 15:54:01.154   974  1401 W WindowManager: Changing focus fromWindow{ad1c3f0 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 15:54:02.153   974   987 I WindowManager: Relayout Window{31e162f u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:54:02.163   974   987 W WindowManager: Changing focus fromnull to Window{31e162f u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:54:05.239   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:54:15.270  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 15:54:15.324  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 15:54:15.341   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 15:54:15.409   974  2242 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=115&success=true&itk=4AF57SF7T-3.2.5-positivo-T418I2-0028&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900232&pan=230650****1282&order_id=1760295241081&authorization_code=900232&authorization_date_time=12/10/2025 18:54:07 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 15:54:15.419   974  2242 W WindowManager: Changing focus fromWindow{31e162f u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 15:54:15.585   974  9993 I WindowManager: Relayout Window{ad1c3f0 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:54:15.593   974  9993 W WindowManager: Changing focus fromnull to Window{ad1c3f0 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:54:15.941  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 15:54:16.010   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 15:54:16.184  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 15:54:16.191   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 15:54:19.019   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:54:20.862   974  9993 W WindowManager: Changing focus fromWindow{ad1c3f0 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{4faf8d7 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:56:17.898   974  1399 I ActivityManager: Process com.android.settings (pid 8701) has died: cch+25 SVC 
+10-12 15:56:17.909   974  1399 W ActivityManager: Scheduling restart of crashed service com.android.settings/com.mediatek.settings.SaveBatteryLevelService in 1000ms for start-requested
+10-12 15:56:17.909   974  1399 W ActivityManager: Scheduling restart of crashed service com.android.settings/com.mediatek.settings.RebootService in 11000ms for start-requested
+10-12 15:56:18.351   974  1059 W RuleEvaluation: Integrity rule files are not available.
+10-12 15:56:18.354   974  1019 I PackageManager: Integrity check passed for file:///data/app/vmdl904303460.tmp
+10-12 15:56:18.387   974  1002 I ActivityManager: Force stopping br.com.nebulasistemas.pdvpilotoapp.positivo appid=10131 user=-1: installPackageLI
+10-12 15:56:18.388   974  1002 I ActivityManager: Killing 10582:br.com.nebulasistemas.pdvpilotoapp.positivo/u0a131 (adj 0): stop br.com.nebulasistemas.pdvpilotoapp.positivo due to installPackageLI
+10-12 15:56:18.392   974  1019 I PackageManager: Update package br.com.nebulasistemas.pdvpilotoapp.positivo code path from /data/app/~~2Bo-VWiZU3VwWldCryqvxQ==/br.com.nebulasistemas.pdvpilotoapp.positivo-fJ8iOr2BnCOgGoW3gL2Q2A== to /data/app/~~LjwlxN9--pGKvFuEtVqzbA==/br.com.nebulasistemas.pdvpilotoapp.positivo-Q4ffhgH4ZQOuqweAjVR3vA==; Retain data and using new
+10-12 15:56:18.393   974  1019 I PackageManager: Update package br.com.nebulasistemas.pdvpilotoapp.positivo resource path from /data/app/~~2Bo-VWiZU3VwWldCryqvxQ==/br.com.nebulasistemas.pdvpilotoapp.positivo-fJ8iOr2BnCOgGoW3gL2Q2A== to /data/app/~~LjwlxN9--pGKvFuEtVqzbA==/br.com.nebulasistemas.pdvpilotoapp.positivo-Q4ffhgH4ZQOuqweAjVR3vA==; Retain data and using new
+10-12 15:56:18.397   974  1002 W ActivityTaskManager: Force removing ActivityRecord{780f6eb u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity t1328 f}}: app died, no saved state
+10-12 15:56:18.397   974  1019 I AppsFilter: interaction: PackageSetting{fd09e28 br.com.stone.posandroid.datacontainer/10087} -> PackageSetting{603bf8f br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.397   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{603bf8f br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.397   974  1019 I AppsFilter: interaction: PackageSetting{95ce492 br.com.stone.posandroid.newsapp/10090} -> PackageSetting{603bf8f br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.398   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{603bf8f br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.454   974  1019 I PackageManager: Permission ownership changed. Updating all permissions.
+10-12 15:56:18.465   974  1002 W WindowManager: Changing focus fromWindow{4faf8d7 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.ActivityRecord.commitVisibility:4297 com.android.server.wm.ActivityRecord.onRemovedFromDisplay:3222 
+10-12 15:56:18.635   974  2254 I WindowManager: WIN DEATH: Window{ad1c3f0 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}
+10-12 15:56:18.639   974   988 I WindowManager: WIN DEATH: Window{4faf8d7 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}
+10-12 15:56:18.687   974   995 W ActivityManager: setHasOverlayUi called on unknown pid: 10582
+10-12 15:56:18.696   974   993 W Looper  : Slow dispatch took 309ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-12 15:56:18.697   974   993 W Looper  : Slow delivery took 305ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=32
+10-12 15:56:18.722   974  1019 I AppsFilter: interaction: PackageSetting{fd09e28 br.com.stone.posandroid.datacontainer/10087} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.723   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.723   974  1019 I AppsFilter: interaction: PackageSetting{95ce492 br.com.stone.posandroid.newsapp/10090} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.723   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 15:56:18.766   974  1019 I ActivityManager: Force stopping br.com.nebulasistemas.pdvpilotoapp.positivo appid=10131 user=0: pkg removed
+10-12 15:56:18.785   974   993 W Looper  : Drained
+10-12 15:56:18.788   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to com.android.packageinstaller/.PackageInstalledReceiver
+10-12 15:56:18.788   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.broadcast.PackageAddedOrChangedReceiver
+10-12 15:56:18.823   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.broadcast.PackageAddedOrChangedReceiver
+10-12 15:56:18.955   974   974 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now null: DDC.oR@AKQ
+10-12 15:56:18.967   974  1003 W ActivityManager: Slow operation: 61ms so far, now at startProcess: returned from zygote!
+10-12 15:56:18.985   974  1003 W ActivityManager: Slow operation: 79ms so far, now at startProcess: done updating battery stats
+10-12 15:56:18.985   974  1003 W ActivityManager: Slow operation: 79ms so far, now at startProcess: building log message
+10-12 15:56:18.985   974  1003 I ActivityManager: Start proc 10735:com.android.settings/1000 for service {com.android.settings/com.mediatek.settings.SaveBatteryLevelService}
+10-12 15:56:18.985   974  1003 W ActivityManager: Slow operation: 79ms so far, now at startProcess: starting to update pids map
+10-12 15:56:18.986   974  1003 W ActivityManager: Slow operation: 80ms so far, now at startProcess: done updating pids map
+10-12 15:56:19.073   974   974 W Looper  : Slow dispatch took 117ms main h=android.app.ActivityThread$H c=android.app.-$$Lambda$LoadedApk$ReceiverDispatcher$Args$_BumDX2UKsnxLVrE6UJsJZkotuA@afd8e42 m=0
+10-12 15:56:19.096   974   988 I WindowManager: Relayout Window{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:56:19.099   974   974 W Looper  : Slow delivery took 257ms main h=android.app.ActivityThread$H c=null m=133
+10-12 15:56:19.115   974   988 W WindowManager: Changing focus fromnull to Window{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:56:19.133   974   974 W Looper  : Drained
+10-12 15:56:19.168   974  1001 W VoiceInteractionManager: no available voice recognition services found for user 0
+10-12 15:56:19.918   974   988 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp/.MainActivity} from uid 2000
+10-12 15:56:21.697   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:56:36.679   974  1002 W BroadcastQueue: Skipping deliver [background] BroadcastRecord{8a0d977 u-1 android.net.conn.CONNECTIVITY_CHANGE} to ReceiverList{7c909e4 10767 (unknown name)/2000/u-1 remote:d503211}: process gone or crashing
+10-12 15:56:36.704   974  2254 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 2000
+10-12 15:56:36.784   974  1003 I ActivityManager: Start proc 10783:br.com.nebulasistemas.pdvpilotoapp.positivo/u0a131 for pre-top-activity {br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}
+10-12 15:56:36.801   974   996 W WindowManager: Changing focus fromWindow{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:56:40.830   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:56:40.835   974  9993 I WindowManager: Relayout Window{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:56:40.840   974  9993 W WindowManager: Changing focus fromnull to Window{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:57:00.974   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{b0db3e0 br.com.stone.posandroid.acquirerapp/10086} BLOCKED
+10-12 15:57:00.975   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{b0db3e0 br.com.stone.posandroid.acquirerapp/10086} BLOCKED
+10-12 15:57:01.012   974   974 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now null: DDC.oR@AKU
+10-12 15:57:01.020   974  1001 W VoiceInteractionManager: no available voice interaction services found for user 0
+10-12 15:57:22.158   974   987 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 15:57:26.957   974   987 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=750&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760295446949 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 15:57:26.997   974   987 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (13394086)
+10-12 15:57:27.017   974   987 W WindowManager: Changing focus fromWindow{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 15:57:27.873   974  2254 I WindowManager: Relayout Window{a52e548 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:57:27.888   974  2254 W WindowManager: Changing focus fromnull to Window{a52e548 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:57:30.547   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:57:32.163   974  1003 I ActivityManager: Start proc 10879:br.com.stone.posandroid.activationapp/u0a81 for service {br.com.stone.posandroid.activationapp/androidx.work.impl.background.systemjob.SystemJobService}
+10-12 15:57:33.605 10879 10903 E ActivityThread: Failed to find provider info for com.google.android.gms.chimera
+10-12 15:57:38.976  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 15:57:39.016  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 15:57:39.052   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 15:57:39.083   974  2254 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=750&success=true&itk=4AF57SF7T-3.2.5-positivo-T418NS-0029&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900235&pan=230650****1282&order_id=1760295446949&authorization_code=900235&authorization_date_time=12/10/2025 18:57:34 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 15:57:39.094   974  2254 W WindowManager: Changing focus fromWindow{a52e548 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 15:57:39.311   974  2251 I WindowManager: Relayout Window{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 15:57:39.319   974  2251 W WindowManager: Changing focus fromnull to Window{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 15:57:39.601   974  2254 W ActivityManager: Slow operation: 55ms so far, now at getContentProviderImpl: after updateLruProcess
+10-12 15:57:39.601   974  2254 W ActivityManager: Slow operation: 55ms so far, now at getContentProviderImpl: before updateOomAdj
+10-12 15:57:39.602   974  2254 W ActivityManager: Slow operation: 56ms so far, now at getContentProviderImpl: after updateOomAdj
+10-12 15:57:39.602   974  2254 W ActivityManager: Slow operation: 56ms so far, now at getContentProviderImpl: done!
+10-12 15:57:39.643  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 15:57:39.831   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 15:57:39.905  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 15:57:39.910   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 15:57:42.696   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 15:57:42.773   974   987 W ActivityManager: Receiver with filter android.content.IntentFilter@c2197d4 already registered for pid 2144, callerPackage is com.xcheng.printerservice
+10-12 15:57:44.592   974   987 W WindowManager: Changing focus fromWindow{5085537 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{f20e472 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:02:25.717   974   974 W Looper  : Slow dispatch took 124ms main h=android.os.Handler c=android.app.AlarmManager$ListenerWrapper@ffc7ab7 m=0
+10-12 16:02:26.021   974   974 W Looper  : Slow dispatch took 304ms main h=com.android.server.job.JobSchedulerService$JobHandler c=null m=1
+10-12 16:02:26.021   974   974 W Looper  : Slow delivery took 308ms main h=com.android.server.AlarmManagerService$AlarmHandler c=null m=4
+10-12 16:02:26.371   974   974 W Looper  : Drained
+10-12 16:02:27.063   974  1059 W RuleEvaluation: Integrity rule files are not available.
+10-12 16:02:27.066   974  1019 I PackageManager: Integrity check passed for file:///data/app/vmdl1340443912.tmp
+10-12 16:02:27.105   974  1002 I ActivityManager: Force stopping br.com.nebulasistemas.pdvpilotoapp.positivo appid=10131 user=-1: installPackageLI
+10-12 16:02:27.107   974  1002 I ActivityManager: Killing 10783:br.com.nebulasistemas.pdvpilotoapp.positivo/u0a131 (adj 0): stop br.com.nebulasistemas.pdvpilotoapp.positivo due to installPackageLI
+10-12 16:02:27.114   974  1019 I PackageManager: Update package br.com.nebulasistemas.pdvpilotoapp.positivo code path from /data/app/~~LjwlxN9--pGKvFuEtVqzbA==/br.com.nebulasistemas.pdvpilotoapp.positivo-Q4ffhgH4ZQOuqweAjVR3vA== to /data/app/~~xFUA9LyBVz7QoK6_YyqPeg==/br.com.nebulasistemas.pdvpilotoapp.positivo-_tcfy7JURnh-NUB0vLag_Q==; Retain data and using new
+10-12 16:02:27.115   974  1019 I PackageManager: Update package br.com.nebulasistemas.pdvpilotoapp.positivo resource path from /data/app/~~LjwlxN9--pGKvFuEtVqzbA==/br.com.nebulasistemas.pdvpilotoapp.positivo-Q4ffhgH4ZQOuqweAjVR3vA== to /data/app/~~xFUA9LyBVz7QoK6_YyqPeg==/br.com.nebulasistemas.pdvpilotoapp.positivo-_tcfy7JURnh-NUB0vLag_Q==; Retain data and using new
+10-12 16:02:27.117   974  1002 W ActivityTaskManager: Force removing ActivityRecord{379b17c u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity t1330 f}}: app died, no saved state
+10-12 16:02:27.121   974  1019 I AppsFilter: interaction: PackageSetting{fd09e28 br.com.stone.posandroid.datacontainer/10087} -> PackageSetting{73fda7a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.122   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{73fda7a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.122   974  1019 I AppsFilter: interaction: PackageSetting{95ce492 br.com.stone.posandroid.newsapp/10090} -> PackageSetting{73fda7a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.122   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{73fda7a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.165   974  1019 I PackageManager: Permission ownership changed. Updating all permissions.
+10-12 16:02:27.183   974  1002 W WindowManager: Changing focus fromWindow{f20e472 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.ActivityRecord.commitVisibility:4297 com.android.server.wm.ActivityRecord.onRemovedFromDisplay:3222 
+10-12 16:02:27.358   974  8699 I WindowManager: WIN DEATH: Window{f20e472 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}
+10-12 16:02:27.383   974  1361 W WindowManager: Failed looking up window session=Session{b78a6f8 10783:u0a10131} callers=com.android.server.wm.WindowManagerService.windowForClientLocked:5489 com.android.server.wm.WindowState$DeathRecipient.binderDied:2827 android.os.IBinder$DeathRecipient.binderDied:305 
+10-12 16:02:27.383   974  1361 I WindowManager: WIN DEATH: null
+10-12 16:02:27.432   974  1019 I AppsFilter: interaction: PackageSetting{fd09e28 br.com.stone.posandroid.datacontainer/10087} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.433   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.437   974  1019 I AppsFilter: interaction: PackageSetting{95ce492 br.com.stone.posandroid.newsapp/10090} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.438   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{7261b9a br.com.nebulasistemas.pdvpilotoapp.positivo/10131} BLOCKED
+10-12 16:02:27.458   974   995 W ActivityManager: setHasOverlayUi called on unknown pid: 10783
+10-12 16:02:27.479   974   993 W Looper  : Slow dispatch took 373ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=53
+10-12 16:02:27.479   974   993 W Looper  : Slow delivery took 368ms android.ui h=com.android.server.am.ActivityManagerService$UiHandler c=null m=32
+10-12 16:02:27.514   974  1019 I ActivityManager: Force stopping br.com.nebulasistemas.pdvpilotoapp.positivo appid=10131 user=0: pkg removed
+10-12 16:02:27.532   974   993 W Looper  : Drained
+10-12 16:02:27.542   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to com.android.packageinstaller/.PackageInstalledReceiver
+10-12 16:02:27.579   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_ADDED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.broadcast.PackageAddedOrChangedReceiver
+10-12 16:02:27.581   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=android.intent.action.PACKAGE_REPLACED dat=package:br.com.nebulasistemas.pdvpilotoapp.positivo flg=0x4000010 (has extras) } to br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.broadcast.PackageAddedOrChangedReceiver
+10-12 16:02:27.664   974   974 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now null: DDC.oR@AKg
+10-12 16:02:27.806   974  1361 I WindowManager: Relayout Window{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:02:27.813   974   974 W Looper  : Slow delivery took 248ms main h=android.app.ActivityThread$H c=android.app.-$$Lambda$LoadedApk$ReceiverDispatcher$Args$_BumDX2UKsnxLVrE6UJsJZkotuA@b6ca65e m=0
+10-12 16:02:27.816   974  1361 W WindowManager: Changing focus fromnull to Window{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:02:27.922   974  1001 W VoiceInteractionManager: no available voice recognition services found for user 0
+10-12 16:02:27.986   974   974 W Looper  : Drained
+10-12 16:02:28.615   974   987 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp/.MainActivity} from uid 2000
+10-12 16:02:30.408   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:02:43.597   974  1002 W BroadcastQueue: Skipping deliver [background] BroadcastRecord{ba2d07b u-1 android.net.conn.CONNECTIVITY_CHANGE} to ReceiverList{9fa6e98 11033 (unknown name)/2000/u-1 remote:46fe875}: process gone or crashing
+10-12 16:02:43.624   974  1361 I ActivityTaskManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 2000
+10-12 16:02:43.689   974  1003 I ActivityManager: Start proc 11048:br.com.nebulasistemas.pdvpilotoapp.positivo/u0a131 for pre-top-activity {br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}
+10-12 16:02:43.708   974   996 W WindowManager: Changing focus fromWindow{c4ebc65 u0 br.com.stone.posandroid.launcherapp/br.com.stone.launcherapp.ui.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:02:47.766   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:02:47.827   974  1162 I WindowManager: Relayout Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:02:47.832   974  1162 W WindowManager: Changing focus fromnull to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:02:57.146   974  2242 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 16:03:35.357   974  2242 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=958&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760295815340 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 16:03:35.469   974  2242 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (13599949)
+10-12 16:03:35.483   974  2242 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:03:36.468   974  1401 I WindowManager: Relayout Window{7781cde u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:03:36.479   974  1401 W WindowManager: Changing focus fromnull to Window{7781cde u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:03:39.500   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:03:48.318  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 16:03:48.347  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 16:03:48.400   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:03:48.451   974  2242 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=958&success=true&itk=4AF57SF7T-3.2.5-positivo-T418Y0-0030&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900245&pan=230650****1282&order_id=1760295815340&authorization_code=900245&authorization_date_time=12/10/2025 19:03:42 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 16:03:48.465   974  2242 W WindowManager: Changing focus fromWindow{7781cde u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:03:48.505   974  1162 W ActivityManager: Slow operation: 54ms so far, now at getContentProviderImpl: after updateOomAdj
+10-12 16:03:48.506   974  1162 W ActivityManager: Slow operation: 55ms so far, now at getContentProviderImpl: done!
+10-12 16:03:48.593   974  2242 I WindowManager: Relayout Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:03:48.601   974  2242 W WindowManager: Changing focus fromnull to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:03:48.933   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 16:03:48.987  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 16:03:49.229  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 16:03:49.234   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:03:52.082   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:03:53.919   974  1399 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{a26775a u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:04:35.821   974  1401 W WindowManager: Changing focus fromWindow{a26775a u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity EXITING} to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2358 com.android.server.wm.WindowState.removeIfPossible:2327 
+10-12 16:05:44.757   974  2242 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 16:05:50.028   974  1162 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=523&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760295950019 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 16:05:50.096   974  1399 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (13968420)
+10-12 16:05:50.100   974  1399 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:05:50.597   974  1401 I WindowManager: Relayout Window{33a27e9 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:05:50.607   974  1401 W WindowManager: Changing focus fromnull to Window{33a27e9 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:05:54.158   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:06:03.063   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.settings.action.UPDATE_TERMINAL_SETTINGS_COMPLETED flg=0x10 } to br.com.stone.posandroid.settingsapp/br.com.stone.posandroid.settings.setup.broadcastreceiver.SyncDataBroadcastReceiver
+10-12 16:06:14.063  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 16:06:14.090  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 16:06:14.102   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:06:14.219   974  1399 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=523&success=true&itk=4AF57SF7T-3.2.5-positivo-T4191Q-0031&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900257&pan=230650****1282&order_id=1760295950019&authorization_code=900257&authorization_date_time=12/10/2025 19:05:59 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 16:06:14.225   974  1399 W WindowManager: Changing focus fromWindow{33a27e9 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:06:14.325   974  2252 I WindowManager: Relayout Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:06:14.331   974  2252 W WindowManager: Changing focus fromnull to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:06:14.652   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 16:06:14.734  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 16:06:14.970  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 16:06:14.976   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:06:17.796   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:06:19.666   974  1361 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{aac84af u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:07:27.897   974  2242 W WindowManager: Changing focus fromWindow{aac84af u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity EXITING} to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2358 com.android.server.wm.WindowState.removeIfPossible:2327 
+10-12 16:09:33.963   974  2242 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 16:09:37.309   974  1361 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=235&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760296177303 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 16:09:37.349   974  1361 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (14103046)
+10-12 16:09:37.353   974  1361 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:09:37.871   974  1399 I WindowManager: Relayout Window{17fd2b2 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:09:37.878   974  1399 W WindowManager: Changing focus fromnull to Window{17fd2b2 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:09:41.457   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:09:49.201  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 16:09:49.226  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 16:09:49.233   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:09:49.307   974  1401 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=235&success=true&itk=4AF57SF7T-3.2.5-positivo-T41982-0032&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900298&pan=230650****1282&order_id=1760296177303&authorization_code=900298&authorization_date_time=12/10/2025 19:09:45 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 16:09:49.315   974  1401 W WindowManager: Changing focus fromWindow{17fd2b2 u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:09:49.413   974  1361 I WindowManager: Relayout Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:09:49.418   974  1361 W WindowManager: Changing focus fromnull to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:09:49.656   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 16:09:49.872  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 16:09:50.109  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 16:09:50.114   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:09:52.906   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:09:54.766   974  1399 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{8b82b22 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:10:47.293   974  1008 E KernelCpuSpeedReader: Failed to read cpu-freq: /sys/devices/system/cpu/cpu4/cpufreq/stats/time_in_state: open failed: ENOENT (No such file or directory)
+10-12 16:11:08.112   974  1001 I UsageStatsService: User[0] Flushing usage stats to disk
+10-12 16:12:01.276   974  1019 I AppsFilter: interaction: PackageSetting{4cb563b com.meuapp/10097} -> PackageSetting{b0db3e0 br.com.stone.posandroid.acquirerapp/10086} BLOCKED
+10-12 16:12:01.276   974  1019 I AppsFilter: interaction: PackageSetting{b7be158 br.com.positivo.stoneprovider/10050} -> PackageSetting{b0db3e0 br.com.stone.posandroid.acquirerapp/10086} BLOCKED
+10-12 16:12:01.316   974   974 I Telecom : DefaultDialerCache: Refreshing default dialer for user 0: now null: DDC.oR@AKk
+10-12 16:12:01.323   974  1001 W VoiceInteractionManager: no available voice interaction services found for user 0
+10-12 16:12:36.956   974   987 W WindowManager: Changing focus fromWindow{8b82b22 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity EXITING} to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2358 com.android.server.wm.WindowState.removeIfPossible:2327 
+10-12 16:12:40.642   974   987 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{f3f424 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.addWindow:1734 com.android.server.wm.Session.addToDisplayAsUser:176 
+10-12 16:12:44.213   974  1399 W WindowManager: Changing focus fromWindow{f3f424 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity EXITING} to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2358 com.android.server.wm.WindowState.removeIfPossible:2327 
+10-12 16:12:45.084   974  1399 I WindowManager: Relayout Window{111a713 u0 InputMethod}: oldVis=8 newVis=0 focusMayChange = true
+10-12 16:12:50.416   974  1401 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=payment-app://pay?return_scheme=stone_payment_scheme&amount=100&transaction_type=CREDIT&editable_amount=0&installment_type=NONE&order_id=1760296370410 flg=0x10000000 cmp=br.com.stone.posandroid.acquirerapp/.payment.PaymentActivity} from uid 10131
+10-12 16:12:50.460   974  1361 W ActivityTaskManager: Tried to set launchTime (0) < mLastActivityLaunchTime (14330299)
+10-12 16:12:50.465   974  1361 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:12:50.980   974  1399 I WindowManager: Relayout Window{bfcd7b u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:12:50.986   974  1399 W WindowManager: Changing focus fromnull to Window{bfcd7b u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:12:54.018   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:13:03.642  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintInit:1048 
+10-12 16:13:03.672  2144  2164 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printBase64Bitmap:508 
+10-12 16:13:03.682   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:13:03.770   974   987 I ActivityTaskManager: START u0 {act=android.intent.action.VIEW dat=stone_payment_scheme://pay-response?code=0&amount=100&success=true&itk=4AF57SF7T-3.2.5-positivo-T419DF-0033&type=CRÉDITO&installment_count=0&brand=MASTERCARD&entry_mode=PICC&atk=38551082900299&pan=230650****1282&order_id=1760296370410&authorization_code=900299&authorization_date_time=12/10/2025 19:12:57 flg=0x10000000 cmp=br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} from uid 10086
+10-12 16:13:03.778   974   987 W WindowManager: Changing focus fromWindow{bfcd7b u0 br.com.stone.posandroid.acquirerapp/br.com.stone.posandroid.acquirerapp.payment.PaymentActivity} to null displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.DisplayContent.setFocusedApp:5524 com.android.server.wm.ActivityTaskManagerService.setResumedActivityUncheckLocked:5510 
+10-12 16:13:03.873   974  1399 I WindowManager: Relayout Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity}: oldVis=4 newVis=0 focusMayChange = true
+10-12 16:13:03.879   974  1399 W WindowManager: Changing focus fromnull to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:13:04.104   974  1002 W BroadcastQueue: Background execution not allowed: receiving Intent { act=br.com.stone.posandroid.CLEAR_PENDING_TRANSACTIONS flg=0x10 } to br.com.stone.posandroid.acquirerapp/.services.broadcast.PendingTransactionEditorReceive
+10-12 16:13:04.316  1609  1609 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendStickyBroadcast:1418 android.content.ContextWrapper.sendStickyBroadcast:616 com.pos.service.printer.PosPrinterClient.broadcastStateChanged:1167 com.pos.service.printer.PosPrinterClient.updatePrintState:1214 com.pos.service.printer.PosPrinterClient.handlePrintRet:1096 
+10-12 16:13:04.552  2144  2165 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.sendBroadcast:1111 android.content.ContextWrapper.sendBroadcast:468 com.xcheng.printerservice.PrinterService.onLengthChanged:1211 com.xcheng.printerservice.PrinterService.access$1100:58 com.xcheng.printerservice.PrinterService$PrinterServiceImp.printStepWrapPaper:300 
+10-12 16:13:04.557   974  1002 I DropBoxManagerService: add tag=system_server_wtf isTagEnabled=true flags=0x2
+10-12 16:13:07.366   974  1597 E TaskPersister: File error accessing recents directory (directory doesn't exist?).
+10-12 16:13:09.083   974   987 W WindowManager: Changing focus fromWindow{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} to Window{101a834 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowManagerService.relayoutWindow:2395 com.android.server.wm.Session.relayout:213 
+10-12 16:13:33.811   974   987 W WindowManager: Changing focus fromWindow{101a834 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity EXITING} to Window{a8c7358 u0 br.com.nebulasistemas.pdvpilotoapp.positivo/br.com.nebulasistemas.pdvpilotoapp.MainActivity} displayId=0 Callers=com.android.server.wm.RootWindowContainer.updateFocusedWindowLocked:463 com.android.server.wm.WindowManagerService.updateFocusedWindowLocked:5606 com.android.server.wm.WindowState.setupWindowForRemoveOnExit:2358 com.android.server.wm.WindowState.removeIfPossible:2327 
+10-12 16:14:26.595   974   974 W BackupManagerService: [UserID:0] Backup pass but enabled=false setupComplete=true
+--------- beginning of main
+10-12 16:17:39.351   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.356   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.357   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:39.362   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:39.366   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.369   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.370   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.399   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.400   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.405   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:39.409   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.412   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.413   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.418   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.419   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.423   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:39.427   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.430   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.432   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.459   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.460   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.465   377   377 I netd    : tetherGetStats() <3.37ms>
+10-12 16:17:39.469   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.472   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.476   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.477   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.477   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.482   377   377 I netd    : tetherGetStats() <3.25ms>
+10-12 16:17:39.486   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.491   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.492   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.516   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.517   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:39.521   377   377 I netd    : tetherGetStats() <2.86ms>
+10-12 16:17:39.526   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.528   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.530   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.535   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.536   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.541   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:39.545   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.547   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.549   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.577   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.578   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:39.583   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:39.587   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.590   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.591   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.597   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.598   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.602   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:39.606   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.609   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.610   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.639   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.640   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.645   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:39.649   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.652   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.653   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.658   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.659   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.664   377   377 I netd    : tetherGetStats() <3.38ms>
+10-12 16:17:39.668   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.671   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.673   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.698   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.699   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.704   377   377 I netd    : tetherGetStats() <3.07ms>
+10-12 16:17:39.708   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.711   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.713   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.715   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.716   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:39.721   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:39.725   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.730   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.731   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.756   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.757   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.761   377   377 I netd    : tetherGetStats() <3.04ms>
+10-12 16:17:39.765   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.768   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.769   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.774   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.775   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.780   377   377 I netd    : tetherGetStats() <3.33ms>
+10-12 16:17:39.784   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.787   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.788   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.821   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.821   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:39.826   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:39.830   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.833   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.834   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.839   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.840   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.845   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:39.849   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.852   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.853   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.880   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.881   377   377 I netd    : trafficSwapActiveStatsMap() <0.27ms>
+10-12 16:17:39.886   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:39.890   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.893   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.894   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.899   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.900   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:39.905   377   377 I netd    : tetherGetStats() <3.13ms>
+10-12 16:17:39.909   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.912   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.913   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.942   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.943   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:39.948   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:39.952   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.954   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.956   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.961   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.962   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:39.966   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:39.971   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.974   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:39.979   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.002   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.003   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.007   377   377 I netd    : tetherGetStats() <2.92ms>
+10-12 16:17:40.011   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.014   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.018   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.018   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.019   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.024   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:40.028   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.032   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.034   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.058   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.059   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:40.064   377   377 I netd    : tetherGetStats() <2.88ms>
+10-12 16:17:40.068   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.070   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.072   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.076   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.077   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:40.081   377   377 I netd    : tetherGetStats() <3.04ms>
+10-12 16:17:40.086   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.088   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.090   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.119   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.120   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.125   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:40.129   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.131   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.133   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.138   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.139   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.143   377   377 I netd    : tetherGetStats() <3.19ms>
+10-12 16:17:40.147   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.150   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.152   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.156 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:40.180   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.181   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.186   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:40.190   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.193   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.195   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.199   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.200   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.205   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:40.209   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.212   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.213   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.242   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.243   377   377 I netd    : trafficSwapActiveStatsMap() <0.27ms>
+10-12 16:17:40.247   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:40.251   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.254   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.255   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.260   377 11699 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:40.261   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.262   377   377 I netd    : trafficSwapActiveStatsMap() <0.19ms>
+10-12 16:17:40.262 11048 11270 I System.out: [socket]:check permission begin!
+10-12 16:17:40.266   377   377 I netd    : tetherGetStats() <2.22ms>
+10-12 16:17:40.269   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.272   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.273   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.298   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.299   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.304   377   377 I netd    : tetherGetStats() <3.24ms>
+10-12 16:17:40.308   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.311   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.312   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.317   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.318   377   377 I netd    : trafficSwapActiveStatsMap() <0.28ms>
+10-12 16:17:40.323   377   377 I netd    : tetherGetStats() <3.21ms>
+10-12 16:17:40.327   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.330   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.331   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.351   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.352   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:40.355   377   377 I netd    : tetherGetStats() <1.79ms>
+10-12 16:17:40.358   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.360   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.361   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.364   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.365   377   377 I netd    : trafficSwapActiveStatsMap() <0.18ms>
+10-12 16:17:40.368   377   377 I netd    : tetherGetStats() <1.74ms>
+10-12 16:17:40.371   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.372   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.374   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.390   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.391   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:40.394   377   377 I netd    : tetherGetStats() <1.77ms>
+10-12 16:17:40.397   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.399   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.400   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.404   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.404   377   377 I netd    : trafficSwapActiveStatsMap() <0.19ms>
+10-12 16:17:40.407   377   377 I netd    : tetherGetStats() <1.70ms>
+10-12 16:17:40.410   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.412   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.422   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.430   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.431   377   377 I netd    : trafficSwapActiveStatsMap() <0.22ms>
+10-12 16:17:40.435   377   377 I netd    : tetherGetStats() <2.19ms>
+10-12 16:17:40.438   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.440   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.441   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.445   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.446   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.450   377   377 I netd    : tetherGetStats() <2.72ms>
+10-12 16:17:40.454   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.456   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.457   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.484   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.485   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:40.488   377   377 I netd    : tetherGetStats() <2.29ms>
+10-12 16:17:40.491   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.493   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.495   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.500   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.500   377   377 I netd    : trafficSwapActiveStatsMap() <0.21ms>
+10-12 16:17:40.505   377   377 I netd    : tetherGetStats() <3.16ms>
+10-12 16:17:40.509   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.512   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.513   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.534   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.535   377   377 I netd    : trafficSwapActiveStatsMap() <0.37ms>
+10-12 16:17:40.540   377   377 I netd    : tetherGetStats() <3.04ms>
+10-12 16:17:40.544   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.546   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.548   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.553   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.554   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.558   377   377 I netd    : tetherGetStats() <3.08ms>
+10-12 16:17:40.562   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.565   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.566   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.596   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.597   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.600   377   377 I netd    : tetherGetStats() <2.59ms>
+10-12 16:17:40.605   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.607   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.609   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.614   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.615   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:40.619   377   377 I netd    : tetherGetStats() <2.95ms>
+10-12 16:17:40.624   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.626   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.628   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.655   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.656   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:40.661   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:40.665   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.667   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.669   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.674   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.675   377   377 I netd    : trafficSwapActiveStatsMap() <0.37ms>
+10-12 16:17:40.680   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:40.684   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.687   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.688   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.717   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.718   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.723   377   377 I netd    : tetherGetStats() <3.16ms>
+10-12 16:17:40.727   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.730   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.731   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.736   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.737   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.742   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:40.746   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.748   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.750   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.779   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.780   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:40.784   377   377 I netd    : tetherGetStats() <2.69ms>
+10-12 16:17:40.788   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.791   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.792   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.795   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.796   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.800   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:40.804   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.809   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.811   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.835   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.836   377   377 I netd    : trafficSwapActiveStatsMap() <0.27ms>
+10-12 16:17:40.841   377   377 I netd    : tetherGetStats() <3.11ms>
+10-12 16:17:40.845   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.847   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.849   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.854   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.855   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.860   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:40.864   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.867   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.868   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.901   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.902   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.906   377   377 I netd    : tetherGetStats() <3.07ms>
+10-12 16:17:40.910   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.913   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.914   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.919   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.920   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.925   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:40.929   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.932   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.933   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.962   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.963   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.967   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:40.971   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.974   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.976   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.981   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.982   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:40.986   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:40.990   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.993   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:40.994   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.021   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.022   377   377 I netd    : trafficSwapActiveStatsMap() <0.35ms>
+10-12 16:17:41.027   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:41.031   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.034   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.035   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.040   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.041   377   377 I netd    : trafficSwapActiveStatsMap() <0.28ms>
+10-12 16:17:41.046   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:41.050   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.053   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.054   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.083   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.084   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.089   377   377 I netd    : tetherGetStats() <3.06ms>
+10-12 16:17:41.093   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.095   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.097   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.102   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.103   377   377 I netd    : trafficSwapActiveStatsMap() <0.34ms>
+10-12 16:17:41.108   377   377 I netd    : tetherGetStats() <3.19ms>
+10-12 16:17:41.112   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.115   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.116   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.143   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.144   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.148   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:41.152   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.155   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.156   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.157 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:41.161   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.162   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:41.167   377   377 I netd    : tetherGetStats() <2.98ms>
+10-12 16:17:41.171   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.174   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.183   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.203   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.204   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.209   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:41.213   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.216   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.217   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.223   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.224   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.228   377   377 I netd    : tetherGetStats() <2.81ms>
+10-12 16:17:41.231   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.234   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.236   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.265   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.266   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:41.270   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:41.274   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.277   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.279   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.284   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.285   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:41.289   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:41.294   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.296   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.298   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.328   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.329   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.333   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:41.337   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.340   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.341   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.347   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.347   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.352   377   377 I netd    : tetherGetStats() <3.11ms>
+10-12 16:17:41.356   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.359   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.360   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.389   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.390   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.395   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:41.399   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.402   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.403   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.409   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.409   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.414   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:41.418   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.421   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.423   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.447   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.448   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.453   377   377 I netd    : tetherGetStats() <3.20ms>
+10-12 16:17:41.457   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.460   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.461   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.467   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.468   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.473   377   377 I netd    : tetherGetStats() <3.27ms>
+10-12 16:17:41.477   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.479   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.481   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.510   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.511   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.515   377   377 I netd    : tetherGetStats() <3.06ms>
+10-12 16:17:41.519   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.522   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.524   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.529   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.530   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.535   377   377 I netd    : tetherGetStats() <3.20ms>
+10-12 16:17:41.539   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.541   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.543   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.570   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.571   377   377 I netd    : trafficSwapActiveStatsMap() <0.28ms>
+10-12 16:17:41.576   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:41.580   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.582   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.584   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.589   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.590   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.594   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:41.599   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.601   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.603   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.630   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.631   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:41.636   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:41.640   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.643   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.644   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.649   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.650   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.655   377   377 I netd    : tetherGetStats() <3.23ms>
+10-12 16:17:41.659   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.663   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.671   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.690   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.691   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.696   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:41.700   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.703   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.705   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.709   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.710   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.715   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:41.719   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.721   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.723   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.733   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:41.752   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.753   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.758   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:41.762   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.765   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.766   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.772   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.773   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:41.777   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:41.781   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.784   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.785   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.815   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.816   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:41.820   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:41.824   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.827   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.828   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.834   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.835   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:41.840   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:41.844   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.846   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.848   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.877   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.877   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:41.882   377   377 I netd    : tetherGetStats() <3.20ms>
+10-12 16:17:41.886   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.889   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.890   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.896   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.897   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.901   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:41.906   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.908   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.911   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.937   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.938   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:41.942   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:41.947   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.950   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.952   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.956   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.957   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:41.961   377   377 I netd    : tetherGetStats() <2.95ms>
+10-12 16:17:41.965   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.968   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.969   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.996   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:41.997   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.002   377   377 I netd    : tetherGetStats() <3.13ms>
+10-12 16:17:42.006   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.008   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.010   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.015   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.016   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.021   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:42.025   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.027   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.029   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.058   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.059   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.063   377   377 I netd    : tetherGetStats() <3.14ms>
+10-12 16:17:42.067   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.070   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.072   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.077   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.078   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.082   377   377 I netd    : tetherGetStats() <3.13ms>
+10-12 16:17:42.086   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.089   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.090   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.119   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.120   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.125   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:42.129   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.131   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.133   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.138   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.139   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.144   377   377 I netd    : tetherGetStats() <3.19ms>
+10-12 16:17:42.148   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.151   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.152   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.157 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:42.179   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.180   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.185   377   377 I netd    : tetherGetStats() <3.30ms>
+10-12 16:17:42.189   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.192   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.193   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.197   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.198   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.203   377   377 I netd    : tetherGetStats() <3.25ms>
+10-12 16:17:42.207   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.210   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.211   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.240   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.241   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:42.246   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:42.250   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.253   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.254   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.263   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.263   377 11700 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:42.264   377   377 I netd    : trafficSwapActiveStatsMap() <0.30ms>
+10-12 16:17:42.265 11048 11326 I System.out: [socket]:check permission begin!
+10-12 16:17:42.268   377   377 I netd    : tetherGetStats() <2.80ms>
+10-12 16:17:42.276   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.278   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.280   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.310   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.311   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:42.316   377   377 I netd    : tetherGetStats() <2.83ms>
+10-12 16:17:42.320   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.322   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.324   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.329   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.330   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.335   377   377 I netd    : tetherGetStats() <3.34ms>
+10-12 16:17:42.339   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.341   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.348   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.369   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.370   377   377 I netd    : trafficSwapActiveStatsMap() <0.21ms>
+10-12 16:17:42.374   377   377 I netd    : tetherGetStats() <2.94ms>
+10-12 16:17:42.378   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.380   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.381   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.387   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.388   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.392   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:42.397   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.399   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.401   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.426   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.427   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.432   377   377 I netd    : tetherGetStats() <2.70ms>
+10-12 16:17:42.436   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.438   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.440   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.443   582   582 I thermal_repeater: [recvMdThermalInfo] ret=33, strLen=127,  2, 32767, -127, 111, 32767, 3996
+10-12 16:17:42.446   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.447   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:42.451   377   377 I netd    : tetherGetStats() <3.22ms>
+10-12 16:17:42.455   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.458   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.467   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.485   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.486   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.491   377   377 I netd    : tetherGetStats() <2.72ms>
+10-12 16:17:42.494   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.497   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.498   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.504   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.505   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.509   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:42.513   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.516   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.518   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.544   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.545   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.550   377   377 I netd    : tetherGetStats() <3.20ms>
+10-12 16:17:42.554   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.557   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.558   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.564   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.565   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:42.569   377   377 I netd    : tetherGetStats() <3.04ms>
+10-12 16:17:42.573   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.576   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.578   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.597   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.598   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:42.601   377   377 I netd    : tetherGetStats() <1.83ms>
+10-12 16:17:42.604   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.606   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.607   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.609   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.610   377   377 I netd    : trafficSwapActiveStatsMap() <0.19ms>
+10-12 16:17:42.613   377   377 I netd    : tetherGetStats() <1.82ms>
+10-12 16:17:42.615   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.618   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.620   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.634   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.635   377   377 I netd    : trafficSwapActiveStatsMap() <0.19ms>
+10-12 16:17:42.638   377   377 I netd    : tetherGetStats() <1.76ms>
+10-12 16:17:42.641   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.643   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.644   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.647   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.648   377   377 I netd    : trafficSwapActiveStatsMap() <0.19ms>
+10-12 16:17:42.651   377   377 I netd    : tetherGetStats() <1.80ms>
+10-12 16:17:42.654   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.657   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.658   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.676   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.677   377   377 I netd    : trafficSwapActiveStatsMap() <0.22ms>
+10-12 16:17:42.680   377   377 I netd    : tetherGetStats() <2.35ms>
+10-12 16:17:42.683   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.685   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.688   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.688   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.689   377   377 I netd    : trafficSwapActiveStatsMap() <0.22ms>
+10-12 16:17:42.693   377   377 I netd    : tetherGetStats() <2.66ms>
+10-12 16:17:42.697   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.701   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.702   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.725   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.725   377   377 I netd    : trafficSwapActiveStatsMap() <0.21ms>
+10-12 16:17:42.730   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:42.733   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.736   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.737   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.741   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.742   377   377 I netd    : trafficSwapActiveStatsMap() <0.30ms>
+10-12 16:17:42.745   377   377 I netd    : tetherGetStats() <1.94ms>
+10-12 16:17:42.747   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.750   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.755   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.767   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.768   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:42.771   377   377 I netd    : tetherGetStats() <2.22ms>
+10-12 16:17:42.775   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.778   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.779   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.782   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.783   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.787   377   377 I netd    : tetherGetStats() <2.70ms>
+10-12 16:17:42.791   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.795   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.796   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.816   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.817   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.822   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:42.826   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.829   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.830   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.835   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.836   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.840   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:42.844   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.847   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.849   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.873   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.874   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:42.878   377   377 I netd    : tetherGetStats() <2.70ms>
+10-12 16:17:42.882   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.885   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.886   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.891   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.892   377   377 I netd    : trafficSwapActiveStatsMap() <0.47ms>
+10-12 16:17:42.897   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:42.901   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.904   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.905   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.934   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.935   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:42.939   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:42.943   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.946   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.948   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.952   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.953   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:42.957   377   377 I netd    : tetherGetStats() <3.06ms>
+10-12 16:17:42.961   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.964   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.966   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.994   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:42.995   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.000   377   377 I netd    : tetherGetStats() <3.09ms>
+10-12 16:17:43.004   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.007   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.008   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.013   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.014   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.019   377   377 I netd    : tetherGetStats() <2.95ms>
+10-12 16:17:43.023   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.026   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.027   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.056   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.057   377   377 I netd    : trafficSwapActiveStatsMap() <0.27ms>
+10-12 16:17:43.061   377   377 I netd    : tetherGetStats() <2.98ms>
+10-12 16:17:43.066   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.068   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.070   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.075   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.076   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.080   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:43.085   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.087   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.089   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.118   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.119   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.124   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:43.128   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.131   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.132   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.138   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.139   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.144   377   377 I netd    : tetherGetStats() <3.13ms>
+10-12 16:17:43.148   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.150   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.153   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.158 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:43.179   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.180   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.185   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:43.189   974  1399 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.192   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.193   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.198   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.199   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.203   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:43.207   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.211   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.213   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.239   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.240   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:43.245   377   377 I netd    : tetherGetStats() <3.18ms>
+10-12 16:17:43.249   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.251   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.253   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.258   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.259   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.263   377   377 I netd    : tetherGetStats() <3.28ms>
+10-12 16:17:43.268   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.270   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.272   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.301   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.302   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:43.307   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:43.311   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.314   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.315   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.320   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.321   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.326   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:43.330   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.333   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.334   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.363   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.364   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.369   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:43.373   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.375   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.377   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.382   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.383   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.388   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:43.392   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.395   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.397   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.423   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.424   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.429   377   377 I netd    : tetherGetStats() <3.32ms>
+10-12 16:17:43.433   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.436   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.437   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.442   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.443   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:43.448   377   377 I netd    : tetherGetStats() <3.08ms>
+10-12 16:17:43.452   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.454   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.456   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.485   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.486   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.490   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:43.495   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.497   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.499   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.504   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.505   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.509   377   377 I netd    : tetherGetStats() <3.01ms>
+10-12 16:17:43.514   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.516   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.518   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.546   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.547   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.552   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:43.556   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.559   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.560   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.565   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.566   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:43.571   377   377 I netd    : tetherGetStats() <2.99ms>
+10-12 16:17:43.575   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.578   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.580   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.605   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.606   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.611   377   377 I netd    : tetherGetStats() <3.07ms>
+10-12 16:17:43.615   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.618   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.619   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.624   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.625   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.630   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:43.634   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.637   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.638   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.667   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.668   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.673   377   377 I netd    : tetherGetStats() <2.75ms>
+10-12 16:17:43.676   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.679   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.681   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.686   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.687   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:43.691   377   377 I netd    : tetherGetStats() <2.86ms>
+10-12 16:17:43.694   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.697   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.698   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.727   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.728   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.733   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:43.737   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.740   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.741   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.746   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.747   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.752   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:43.756   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.759   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.761   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.787   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.788   377   377 I netd    : trafficSwapActiveStatsMap() <0.20ms>
+10-12 16:17:43.792   377   377 I netd    : tetherGetStats() <2.67ms>
+10-12 16:17:43.796   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.799   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.800   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.806   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.806   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.811   377   377 I netd    : tetherGetStats() <3.23ms>
+10-12 16:17:43.815   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.818   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.820   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.850   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.850   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:43.855   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:43.859   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.862   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.863   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.868   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.869   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:43.874   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:43.878   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.880   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.882   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.911   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.912   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:43.916   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:43.920   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.923   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.924   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.930   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.931   377   377 I netd    : trafficSwapActiveStatsMap() <0.22ms>
+10-12 16:17:43.935   377   377 I netd    : tetherGetStats() <2.93ms>
+10-12 16:17:43.939   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.942   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.943   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.972   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.973   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:43.977   377   377 I netd    : tetherGetStats() <3.17ms>
+10-12 16:17:43.982   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.984   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.986   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.991   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:43.992   377   377 I netd    : trafficSwapActiveStatsMap() <0.28ms>
+10-12 16:17:43.996   377   377 I netd    : tetherGetStats() <3.08ms>
+10-12 16:17:44.001   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.003   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.005   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.034   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.034   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.039   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:44.043   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.046   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.051   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.051   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.052   377   377 I netd    : trafficSwapActiveStatsMap() <0.31ms>
+10-12 16:17:44.056   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:44.061   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.065   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.067   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.091   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.093   377   377 I netd    : trafficSwapActiveStatsMap() <0.34ms>
+10-12 16:17:44.097   377   377 I netd    : tetherGetStats() <2.98ms>
+10-12 16:17:44.101   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.104   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.106   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.111   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.112   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.116   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:44.120   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.123   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.125   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.153   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.154   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:44.158   377   377 I netd    : tetherGetStats() <3.13ms>
+10-12 16:17:44.158 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:44.162   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.165   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.167   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.172   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.173   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:44.178   377   377 I netd    : tetherGetStats() <3.07ms>
+10-12 16:17:44.182   974  2242 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.185   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.186   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.216   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.217   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:44.221   377   377 I netd    : tetherGetStats() <3.03ms>
+10-12 16:17:44.225   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.228   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.229   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.235   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.236   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:44.240   377   377 I netd    : tetherGetStats() <3.08ms>
+10-12 16:17:44.244   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.247   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.248   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.265 11048 11473 I System.out: [socket]:check permission begin!
+10-12 16:17:44.279   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.280   377   377 I netd    : trafficSwapActiveStatsMap() <0.31ms>
+10-12 16:17:44.285   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:44.289   974  1162 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.291   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.293   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.298   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.299   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.303   377   377 I netd    : tetherGetStats() <3.07ms>
+10-12 16:17:44.307   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.310   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.312   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.340   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.341   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.346   377   377 I netd    : tetherGetStats() <3.12ms>
+10-12 16:17:44.350   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.353   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.355   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.360   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.361   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:44.365   377   377 I netd    : tetherGetStats() <3.02ms>
+10-12 16:17:44.370   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.372   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.374   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.400   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.401   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.406   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:44.410   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.413   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.414   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.419   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.420   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.425   377   377 I netd    : tetherGetStats() <3.30ms>
+10-12 16:17:44.429   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.432   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.433   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.462   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.463   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:44.467   377   377 I netd    : tetherGetStats() <2.72ms>
+10-12 16:17:44.472   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.474   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.476   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.481   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.482   377   377 I netd    : trafficSwapActiveStatsMap() <0.23ms>
+10-12 16:17:44.486   377   377 I netd    : tetherGetStats() <3.04ms>
+10-12 16:17:44.490   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.493   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.494   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.523   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.524   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.529   377   377 I netd    : tetherGetStats() <2.98ms>
+10-12 16:17:44.533   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.536   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.537   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.543   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.544   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.548   377   377 I netd    : tetherGetStats() <3.00ms>
+10-12 16:17:44.552   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.555   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.557   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.584   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.585   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.589   377   377 I netd    : tetherGetStats() <3.10ms>
+10-12 16:17:44.593   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.596   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.597   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.603   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.604   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.608   377   377 I netd    : tetherGetStats() <3.15ms>
+10-12 16:17:44.613   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.615   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.617   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.645   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.646   377   377 I netd    : trafficSwapActiveStatsMap() <0.25ms>
+10-12 16:17:44.651   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:44.655   974  2252 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.658   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.659   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.664   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.665   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:44.670   377   377 I netd    : tetherGetStats() <3.05ms>
+10-12 16:17:44.674   974   987 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.677   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.678   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.707   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.708   377   377 I netd    : trafficSwapActiveStatsMap() <0.24ms>
+10-12 16:17:44.713   377   377 I netd    : tetherGetStats() <3.26ms>
+10-12 16:17:44.717   974  1361 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.720   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.721   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.726   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.727   377   377 I netd    : trafficSwapActiveStatsMap() <0.26ms>
+10-12 16:17:44.732   377   377 I netd    : tetherGetStats() <3.19ms>
+10-12 16:17:44.736   974  1401 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.739   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.741   974  1065 W BestClock: java.time.DateTimeException: Missing NTP fix
+10-12 16:17:44.749   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:44.817  2739 10448 E AppsHelper: [DefaultDispatcher-worker-3] Application not found = android.content.pm.PackageManager$NameNotFoundException: 
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at android.app.ApplicationPackageManager.getPackageInfoAsUser(ApplicationPackageManager.java:206)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at android.app.ApplicationPackageManager.getPackageInfo(ApplicationPackageManager.java:178)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.util.AppsHelper.getTimeAppInstalled(AppsHelper.kt:15)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.datausage.repository.HalDataSource.getAppsDataUsage(HalDataSource.kt:17)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.datausage.DataUsageReportManager.buildContentReport(DataUsageReportManager.kt:23)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.datausage.DataUsageReportManager.generate(DataUsageReportManager.kt:46)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.interfaces.ManagerReport$DefaultImpls.generate$default(ManagerReport.kt:8)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.workers.GenerateReportWorker.performTask(GenerateReportWorker.kt:21)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at br.com.stone.posandroid.poireport.service.workers.PoiReportWorker$doWork$2$2$measureDuration$1$1.invokeSuspend(PoiReportWorker.kt:95)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:106)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.internal.LimitedDispatcher.run(LimitedDispatcher.kt:42)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:95)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:570)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:750)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:677)
+10-12 16:17:44.817  2739 10448 E AppsHelper: 	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:664)
+10-12 16:17:45.011  2739  2779 I WM-WorkerWrapper: Worker result SUCCESS for Work [ id=647f44a4-2dd0-445a-b618-497ba8a393b4, tags={ br.com.stone.posandroid.poireport.service.workers.GenerateReportWorker, JobsonWorker, poi-report, GenerateReportWorker-DataUsageUploadScheduler-DataUsage-1003 } ]
+10-12 16:17:45.030   974   983 I system_server: Background young concurrent copying GC freed 100179(5164KB) AllocSpace objects, 0(0B) LOS objects, 29% free, 12MB/18MB, paused 227us total 110.608ms
+10-12 16:17:45.042  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = GENERIC_REPEAT_INTERVAL_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.050  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = GENERIC_BACKOFF_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.159 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:45.167  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = GENERIC_REPEAT_INTERVAL_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.178  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = GENERIC_BACKOFF_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.187  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = DATA_USAGE_REPORT_INTERVAL_SECONDS,value = null)
+10-12 16:17:45.196  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = DATA_USAGE_BACKOFF_IN_MINUTES,value = null)
+10-12 16:17:45.203  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = HARDWARE_REPEAT_INTERVAL_IN_MINUTES,value = null)
+10-12 16:17:45.208  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = HARDWARE_BACKOFF_IN_MINUTES,value = null)
+10-12 16:17:45.217  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = HARDWARE_REPEAT_INTERVAL_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.223  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = HARDWARE_BACKOFF_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.231  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = CONNECTIVITY_REPEAT_INTERVAL_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:45.238  1810 11588 I RemoteTerminalSettingsDataSource: Binder:1810_E get(key = CONNECTIVITY_BACKOFF_INTERVAL_IN_MINUTES_UPLOAD,value = null)
+10-12 16:17:46.159 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:46.267   377 11706 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:46.269 11048 11353 I System.out: [socket]:check permission begin!
+10-12 16:17:47.161 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:47.759   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:48.162 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:48.270 11048 11383 I System.out: [socket]:check permission begin!
+10-12 16:17:49.164 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:50.164 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:50.270   377 11707 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:50.272 11048 11414 I System.out: [socket]:check permission begin!
+10-12 16:17:50.774   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:51.165 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:52.166 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:52.272 11048 11476 I System.out: [socket]:check permission begin!
+10-12 16:17:52.461   582   582 I thermal_repeater: [recvMdThermalInfo] ret=33, strLen=127,  2, 32767, -127, 111, 32767, 3996
+10-12 16:17:53.166 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:53.784   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:54.167 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:54.274   377 11708 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:54.276 11048 11508 I System.out: [socket]:check permission begin!
+10-12 16:17:55.167 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:56.167 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:56.274 11048 11578 I System.out: [socket]:check permission begin!
+10-12 16:17:56.798   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:57.169 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:58.071   406   943 I BufferQueueProducer: [StatusBar#0](this:0xa83a3780,id:6,api:1,p:1212,c:406) queueBuffer: fps=0.04 dur=54647.33 max=54080.45 min=566.88
+10-12 16:17:58.080   386   442 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.036599,dur:54646.44,max:54079.84,min:566.60  
+10-12 16:17:58.170 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:58.276   377 11710 I ResolverController: No valid NAT64 prefix (100, <unspecified>/0)
+10-12 16:17:58.278 11048 11623 I System.out: [socket]:check permission begin!
+10-12 16:17:58.720 11711 11711 W sh      : type=1400 audit(0.0:1516): avc: denied { search } for name="mm" dev="sysfs" ino=5253 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_mm:s0 tclass=dir permissive=0
+10-12 16:17:58.740 11711 11711 W logcat  : type=1400 audit(0.0:1517): avc: denied { search } for name="mm" dev="sysfs" ino=5253 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_mm:s0 tclass=dir permissive=0
+10-12 16:17:58.813   599   599 V thermal_src: TA_DAEMON_CMD_SET_TTJ cmd=0x4, len=4 Tj=55000
+10-12 16:17:59.171 11048 11048 W MainActivity: ⏳ ReactContext still null, 4 events waiting...
+10-12 16:17:59.814   974  1068 E WifiVendorHal: getWifiLinkLayerStats_1_3_Internal(l.973) failed {.code = ERROR_NOT_SUPPORTED, .description = }
+10-12 16:17:59.980 11714 11714 W sh      : type=1400 audit(0.0:1518): avc: denied { search } for name="mm" dev="sysfs" ino=5253 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_mm:s0 tclass=dir permissive=0
+10-12 16:17:59.990 11714 11714 W logcat  : type=1400 audit(0.0:1519): avc: denied { search } for name="mm" dev="sysfs" ino=5253 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_mm:s0 tclass=dir permissive=0
+10-12 16:18:00.015   406   458 I BufferQueueProducer: [StatusBar#0](this:0xa83a3780,id:6,api:1,p:1212,c:406) queueBuffer: fps=0.51 dur=1944.01 max=1944.01 min=1944.01
+10-12 16:18:00.027   386   442 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:0.513515,dur:1947.36,max:1947.36,min:1947.36  
