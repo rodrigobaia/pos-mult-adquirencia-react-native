@@ -197,6 +197,7 @@ android {
         }
     }
 
+
     /**
      * Build Types
      */
@@ -215,29 +216,32 @@ android {
     }
 
     /**
-     * Configuração de assinatura dinâmica por fabricante
-     * Comentado temporariamente para build básico funcionar
+     * Configuração de assinatura por fabricante
      */
-    // applicationVariants.all { variant ->
-    //     def manufacturer = variant.flavorName
-    //     def buildType = variant.buildType.name
-    //     
-    //     if (buildType == "release" && stoneManufacturers.containsKey(manufacturer)) {
-    //         def keystoreFile = stoneManufacturers[manufacturer].keystoreFile
-    //         def signingConfig = stoneManufacturers[manufacturer].signingConfig
-    //         
-    //         // Verificar se arquivos de configuração existem
-    //         if (file(keystoreFile).exists() && file(signingConfig).exists()) {
-    //             apply from: signingConfig
-    //             variant.buildType.signingConfig = signingConfigs[manufacturer]
-    //             println "✅ Configuração de assinatura aplicada para ${manufacturer}"
-    //         } else {
-    //             println "⚠️ Arquivos de configuração não encontrados para ${manufacturer}:"
-    //             println "   Keystore: ${keystoreFile}"
-    //             println "   Signing: ${signingConfig}"
-    //         }
-    //     }
-    // }
+    signingConfigs {
+        // Aplicar configurações de assinatura para cada fabricante
+        stoneManufacturers.each { manufacturer, config ->
+            def keystoreFile = config.keystoreFile
+            def keystoreProperties = new Properties()
+            
+            if (file(keystoreFile).exists()) {
+                keystoreProperties.load(new FileInputStream(file(keystoreFile)))
+                
+                "${manufacturer}" {
+                    storeFile file("${keystoreFile.replace('keystore.properties', keystoreProperties.getProperty('storeFile'))}")
+                    keyAlias keystoreProperties.getProperty('keyAlias')
+                    keyPassword keystoreProperties.getProperty('keyPassword')
+                    storePassword keystoreProperties.getProperty('storePassword')
+                }
+                
+                println "✅ Configuração de assinatura carregada para ${manufacturer}"
+            } else {
+                println "⚠️ Arquivo de keystore não encontrado para ${manufacturer}: ${keystoreFile}"
+            }
+        }
+    }
+
+
 
     /**
      * Source Sets - incluir código Stone SDK

@@ -155,3 +155,4 @@ apks/
 # Arquivos de propriedades com senhas
 *-keystore.properties
 !*-keystore.properties.example
+build-log.txt~

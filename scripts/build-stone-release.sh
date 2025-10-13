@@ -79,14 +79,25 @@ check_keystore() {
     local manufacturer=$2
     
     local keystore_dir="$MANUFACTURERS_DIR/$acquirer/$manufacturer"
-    local keystore_file="$keystore_dir/${manufacturer}-release.keystore"
+    # Suporta duas convenções de nomes:
+    # 1) ${manufacturer}-release.keystore (antigo usado pelo script)
+    # 2) ${manufacturer}-keystore.jks (atual no repositório)
+    local keystore_file_release="$keystore_dir/${manufacturer}-release.keystore"
+    local keystore_file_jks="$keystore_dir/${manufacturer}-keystore.jks"
     local keystore_props="$keystore_dir/${manufacturer}-keystore.properties"
     
-    if [ ! -f "$keystore_file" ]; then
-        print_error "Keystore não encontrado: $keystore_file"
+    local resolved_keystore=""
+    if [ -f "$keystore_file_release" ]; then
+        resolved_keystore="$keystore_file_release"
+    elif [ -f "$keystore_file_jks" ]; then
+        resolved_keystore="$keystore_file_jks"
+    fi
+
+    if [ -z "$resolved_keystore" ]; then
+        print_error "Keystore não encontrado: $keystore_file_release ou $keystore_file_jks"
         echo ""
         echo "  Crie o keystore com:"
-        echo "  keytool -genkey -v -keystore $keystore_file \\"
+        echo "  keytool -genkey -v -keystore $keystore_file_release \\"
         echo "    -alias ${manufacturer}_key \\"
         echo "    -keyalg RSA -keysize 2048 -validity 10000"
         echo ""
@@ -97,7 +108,7 @@ check_keystore() {
         print_error "Arquivo de propriedades não encontrado: $keystore_props"
         echo ""
         echo "  Crie o arquivo com:"
-        echo "  storeFile=${manufacturer}-release.keystore"
+        echo "  storeFile=$(basename "$resolved_keystore")"
         echo "  storePassword=YOUR_STORE_PASSWORD"
         echo "  keyAlias=${manufacturer}_key"
         echo "  keyPassword=YOUR_KEY_PASSWORD"
@@ -121,8 +132,8 @@ prepare_output_dir() {
     local acquirer=$1
     local output_dir="$PROJECT_ROOT/apks/release"
     
-    print_info "Preparando diretório de output..."
     mkdir -p "$output_dir"
+    print_info "Preparando diretório de output..." >&2
     
     echo "$output_dir"
 }
@@ -144,12 +155,32 @@ build_manufacturer_release() {
     
     cd "$ANDROID_DIR"
     
-    # Executar build release
-    if ./gradlew "assemble${variant}" --quiet; then
-        print_success "Build ${manufacturer} release concluído"
-        return 0
+    # Executar build release com configuração de assinatura
+    local keystore_dir="$MANUFACTURERS_DIR/$acquirer/$manufacturer"
+    local keystore_props="$keystore_dir/${manufacturer}-keystore.properties"
+    
+    if [ -f "$keystore_props" ]; then
+        # Carregar propriedades do keystore usando awk para evitar problemas com caracteres especiais
+        local store_file=$(awk -F'=' '/^storeFile=/ {print $2}' "$keystore_props" | tr -d ' ')
+        local store_password=$(awk -F'=' '/^storePassword=/ {print $2}' "$keystore_props" | tr -d ' ')
+        local key_alias=$(awk -F'=' '/^keyAlias=/ {print $2}' "$keystore_props" | tr -d ' ')
+        local key_password=$(awk -F'=' '/^keyPassword=/ {print $2}' "$keystore_props" | tr -d ' ')
+        
+        # Executar build com parâmetros de assinatura
+        if ./gradlew "assemble${variant}" \
+            -Pandroid.injected.signing.store.file="$keystore_dir/$store_file" \
+            -Pandroid.injected.signing.store.password="$store_password" \
+            -Pandroid.injected.signing.key.alias="$key_alias" \
+            -Pandroid.injected.signing.key.password="$key_password" \
+            --quiet; then
+            print_success "Build ${manufacturer} release concluído"
+            return 0
+        else
+            print_error "Falha no build release ${manufacturer}"
+            return 1
+        fi
     else
-        print_error "Falha no build release ${manufacturer}"
+        print_error "Arquivo de propriedades não encontrado: $keystore_props"
         return 1
     fi
 }
@@ -160,11 +191,19 @@ copy_and_rename_apk_release() {
     local manufacturer=$2
     local output_dir=$3
     
-    # APK original do Gradle
-    local original_apk="$BUILD_DIR/${manufacturer}/release/app-${manufacturer}-release.apk"
+    # APK original do Gradle (pode ser signed ou unsigned)
+    local original_apk_signed="$BUILD_DIR/${manufacturer}/release/app-${manufacturer}-release.apk"
+    local original_apk_unsigned="$BUILD_DIR/${manufacturer}/release/app-${manufacturer}-release-unsigned.apk"
     
-    # Nome padronizado: pdv-piloto-[adquirente]-v[versionCode]-[versionName]-[fabricante].apk
-    local new_name="pdv-piloto-${acquirer}-v${VERSION_CODE}-${VERSION_NAME}-${manufacturer}.apk"
+    local original_apk=""
+    if [ -f "$original_apk_signed" ]; then
+        original_apk="$original_apk_signed"
+    elif [ -f "$original_apk_unsigned" ]; then
+        original_apk="$original_apk_unsigned"
+    fi
+    
+    # Nome padronizado: pdv-piloto-[adquirente]-v[versionCode]-[versionName]-[fabricante]-release.apk
+    local new_name="pdv-piloto-${acquirer}-v${VERSION_CODE}-${VERSION_NAME}-${manufacturer}-release.apk"
     local destination="$output_dir/$new_name"
     
     if [ -f "$original_apk" ]; then
@@ -174,16 +213,6 @@ copy_and_rename_apk_release() {
         local size=$(du -h "$destination" | cut -f1)
         
         print_success "APK assinado: $new_name ($size)"
-        
-        # Verificar assinatura
-        if command -v apksigner &> /dev/null; then
-            print_info "Verificando assinatura..."
-            if apksigner verify "$destination" > /dev/null 2>&1; then
-                print_success "Assinatura válida ✓"
-            else
-                print_warning "Falha na verificação de assinatura"
-            fi
-        fi
         
         return 0
     else
@@ -290,7 +319,7 @@ show_keystore_help() {
     
     for manufacturer in $manufacturers; do
         local keystore_dir="$MANUFACTURERS_DIR/$acquirer/$manufacturer"
-        local keystore_file="$keystore_dir/${manufacturer}-release.keystore"
+        local keystore_file="$keystore_dir/${manufacturer}-keystore.jks"
         
         echo -e "${BLUE}━━━ ${manufacturer^^} ━━━${NC}"
         echo ""
@@ -304,7 +333,7 @@ show_keystore_help() {
         echo "   $keystore_dir/${manufacturer}-keystore.properties"
         echo ""
         echo "   Conteúdo:"
-        echo "   storeFile=${manufacturer}-release.keystore"
+        echo "   storeFile=${manufacturer}-keystore.jks"
         echo "   storePassword=YOUR_STORE_PASSWORD"
         echo "   keyAlias=${manufacturer}_key"
         echo "   keyPassword=YOUR_KEY_PASSWORD"
@@ -391,9 +420,6 @@ main() {
     
     echo ""
 }
-
-# Trap para mostrar ajuda de keystore em caso de erro
-trap 'if [ $? -ne 0 ]; then show_keystore_help "${1:-stone}"; fi' EXIT
 
 # Executar
 main "$@"
