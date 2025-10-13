@@ -6,6 +6,7 @@ import {
   Modal,
   TouchableOpacity,
   Animated,
+  ScrollView,
 } from 'react-native';
 
 interface PaymentResultModalProps {
@@ -14,6 +15,7 @@ interface PaymentResultModalProps {
   transactionId: string;
   amount: number;
   error?: string;
+  extras?: Record<string, any>; // Dados extras da integração
   onNewSale: () => void;
 }
 
@@ -23,6 +25,7 @@ export const PaymentResultModal: React.FC<PaymentResultModalProps> = ({
   transactionId,
   amount,
   error,
+  extras,
   onNewSale,
 }) => {
   const scaleAnim = React.useRef(new Animated.Value(0)).current;
@@ -108,6 +111,18 @@ export const PaymentResultModal: React.FC<PaymentResultModalProps> = ({
               <Text style={styles.errorHint}>
                 Valor tentado: R$ {amount.toFixed(2).replace('.', ',')}
               </Text>
+            </View>
+          )}
+
+          {/* Debug: Dados da Integração Stone */}
+          {extras && (
+            <View style={styles.debugContainer}>
+              <Text style={styles.debugTitle}>🔍 Debug - Retorno Stone:</Text>
+              <ScrollView style={styles.debugScroll}>
+                <Text style={styles.debugText}>
+                  {JSON.stringify(extras, null, 2)}
+                </Text>
+              </ScrollView>
             </View>
           )}
 
@@ -229,6 +244,30 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  debugContainer: {
+    width: '100%',
+    backgroundColor: '#F3F4F6',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: '#D1D5DB',
+  },
+  debugTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#374151',
+    marginBottom: 12,
+  },
+  debugScroll: {
+    maxHeight: 200,
+  },
+  debugText: {
+    fontSize: 12,
+    fontFamily: 'monospace',
+    color: '#1F2937',
+    lineHeight: 18,
   },
 });
 

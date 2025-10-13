@@ -20,7 +20,7 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
     override fun getName(): String = MODULE_NAME
     
     @ReactMethod
-    fun requestPayment(amount: String, type: String, promise: Promise) {
+    fun requestPayment(amount: String, type: String, orderIdArg: String?, promise: Promise) {
         try {
             val activity = reactContext.currentActivity
             
@@ -44,7 +44,8 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
                 uriBuilder.appendQueryParameter("installment_type", "NONE")
             }
             
-            uriBuilder.appendQueryParameter("order_id", System.currentTimeMillis().toString())
+            val orderId = orderIdArg?.takeIf { it.isNotBlank() } ?: System.currentTimeMillis().toString()
+            uriBuilder.appendQueryParameter("order_id", orderId)
             
             // Criar Intent com ACTION_VIEW
             val intent = Intent(Intent.ACTION_VIEW).apply {

@@ -12,6 +12,9 @@ import {
 
 const { StoneBridge } = NativeModules;
 
+// Mantém em memória o último payload enviado para o app da Stone
+let lastRequestPayload: Record<string, any> | null = null;
+
 /**
  * Provider de pagamento Stone
  * 
@@ -42,8 +45,24 @@ export class StonePaymentProvider implements IPaymentProvider {
     // Mapear PaymentType para string Stone
     const stonePaymentType = this.mapPaymentTypeToString(request.type);
     
+    // orderId vindo do chamador (ou gerar um)
+    const orderId = request.orderId || `${Date.now()}`;
+    
+    // Guardar para debug
+    lastRequestPayload = {
+      amountFormatted,
+      paymentType: stonePaymentType,
+      orderId,
+    };
+    
     // Chamar native module
-    await StoneBridge.requestPayment(amountFormatted, stonePaymentType);
+    // Assinatura Kotlin aceita (amount, type, orderId)
+    try {
+      await (StoneBridge.requestPayment as any)(amountFormatted, stonePaymentType, orderId);
+    } catch (e) {
+      // Compatibilidade com versões antigas (sem orderId)
+      await (StoneBridge.requestPayment as any)(amountFormatted, stonePaymentType);
+    }
   }
   
   /**
@@ -78,7 +97,12 @@ export class StonePaymentProvider implements IPaymentProvider {
       'paymentReceived',
       (event: string) => {
         try {
-          const result = this.parseStoneResponse(event);
+      const result = this.parseStoneResponse(event);
+      if (!result.extras) result.extras = {};
+      // Anexar o último payload enviado para auxiliar debug/correlação
+      if (lastRequestPayload) {
+        result.extras.lastRequest = lastRequestPayload;
+      }
           callback(result);
         } catch (error) {
           console.error('Error parsing Stone payment result:', error);
@@ -162,41 +186,85 @@ export class StonePaymentProvider implements IPaymentProvider {
    */
   private getParam(key: string, url: string): string | null {
     const match = url.match('[?&]' + key + '=([^&]+)');
-    return match ? match[1] : null;
+    if (!match) return null;
+    try {
+      return decodeURIComponent(match[1]);
+    } catch {
+      return match[1];
+    }
   }
   
   /**
    * Parse da resposta Stone para formato genérico
    */
   private parseStoneResponse(event: string): PaymentResult {
-    // event é a URL completa: stone_payment_scheme://pay-response?success=true&itk=123&amount=5000...
-    
-    const success = this.getParam('success', event) === 'true' || this.getParam('code', event) === '0';
-    const transactionId = this.getParam('itk', event) || '';
+    // event é a URL completa: stone_payment_scheme://pay-response?... (ver docs em docs/stone)
+
+    console.log('🔍 [StonePaymentProvider] Parsing Stone response:');
+    console.log('📥 Raw URL:', event);
+
+    // Suporte a múltiplas chaves conforme docs e variações observadas
+    const successParam =
+      this.getParam('success', event) ||
+      this.getParam('status', event) ||
+      this.getParam('authorized', event) ||
+      this.getParam('approved', event);
+
+    const codeParam =
+      this.getParam('errorCode', event) ||
+      this.getParam('code', event) ||
+      this.getParam('resultCode', event);
+
+    // Normalizar possíveis valores de sucesso
+    const normalizedSuccess = (successParam || '').toString().toUpperCase();
+    const successByFlag =
+      normalizedSuccess === 'TRUE' ||
+      normalizedSuccess === '1' ||
+      normalizedSuccess === 'SUCCESS' ||
+      normalizedSuccess === 'APPROVED' ||
+      normalizedSuccess === 'AUTHORIZED';
+    const successByCode = codeParam === '0' || codeParam === 'OK' || codeParam === null;
+    const success = successByFlag || successByCode;
+
+    console.log('✅ success param:', successParam);
+    console.log('✅ code param:', codeParam);
+    console.log('✅ computed success:', success);
+
+    const transactionId =
+      this.getParam('transactionId', event) ||
+      this.getParam('itk', event) ||
+      this.getParam('atk', event) ||
+      '';
+
     const amountStr = this.getParam('amount', event) || '0';
     const amountCents = parseInt(amountStr, 10);
-    const amount = amountCents / 100; // Converter centavos → reais
-    
-    return {
+    const amount = isNaN(amountCents) ? 0 : amountCents / 100; // Converter centavos → reais
+
+    const result: PaymentResult = {
       success,
       transactionId,
       amount,
       timestamp: new Date(),
       extras: {
-        orderId: this.getParam('order_id', event), // ✅ Order ID que foi enviado
-        cardBrand: this.getParam('brand', event), // Bandeira do cartão
-        cardholderName: this.getParam('cardholder_name', event), // Nome no cartão
-        authorizationCode: this.getParam('authorization_code', event), // Código autorização
-        authorizationDateTime: this.getParam('authorization_date_time', event), // Data/hora
+        rawUrl: event, // URL completa para debug
+        orderId: this.getParam('order_id', event) || this.getParam('orderId', event),
+        cardBrand: this.getParam('cardBrand', event) || this.getParam('brand', event),
+        cardholderName: this.getParam('cardholder_name', event) || this.getParam('cardholderName', event),
+        authorizationCode: this.getParam('authorization_code', event) || this.getParam('authCode', event),
+        authorizationDateTime: this.getParam('authorization_date_time', event) || this.getParam('authDateTime', event),
         atk: this.getParam('atk', event), // Authorizer Transaction Key
         pan: this.getParam('pan', event), // PAN mascarado
-        paymentType: this.getParam('type', event), // Tipo (Débito/Crédito)
-        entryMode: this.getParam('entry_mode', event), // Modo de entrada
-        installmentCount: this.getParam('installment_count', event), // Parcelas
-        errorCode: this.getParam('code', event), // Código de erro/sucesso
-        errorMessage: this.getParam('message', event), // Mensagem de erro
+        paymentType: this.getParam('paymentType', event) || this.getParam('type', event),
+        entryMode: this.getParam('entry_mode', event) || this.getParam('entryMode', event),
+        installmentCount: this.getParam('installment_count', event) || this.getParam('installmentCount', event),
+        errorCode: codeParam,
+        errorMessage: this.getParam('message', event) || this.getParam('errorMessage', event),
         acquirer: 'stone',
       },
     };
+
+    console.log('📤 [StonePaymentProvider] Parsed result:', JSON.stringify(result, null, 2));
+
+    return result;
   }
 }

@@ -470,6 +470,7 @@ export const PaymentScreen: React.FC = () => {
           transactionId={paymentResult.transactionId}
           amount={paymentResult.amount}
           error={paymentResult.extras?.error}
+          extras={paymentResult.extras}
           onNewSale={handleNewSale}
         />
       )}
