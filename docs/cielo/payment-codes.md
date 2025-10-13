@@ -122,8 +122,8 @@ Esta documentação contém todos os códigos de pagamento disponíveis para int
 
 ```kotlin
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 1000L, // R$ 10,00
     paymentCode = "DEBITO_AVISTA",
     installments = 0,
@@ -138,8 +138,8 @@ val request = OrderRequest(
 
 ```kotlin
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 3000L, // R$ 30,00
     paymentCode = "CREDITO_PARCELADO_LOJA",
     installments = 3, // 3 parcelas
@@ -154,8 +154,8 @@ val request = OrderRequest(
 
 ```kotlin
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 1000L, // R$ 10,00
     paymentCode = "PIX",
     installments = 0,
@@ -170,8 +170,8 @@ val request = OrderRequest(
 
 ```kotlin
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 1500L, // R$ 15,00
     paymentCode = "VOUCHER_ALIMENTACAO",
     installments = 0,
@@ -186,8 +186,8 @@ val request = OrderRequest(
 
 ```kotlin
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 5000L, // R$ 50,00
     paymentCode = "CREDIARIO_VENDA",
     installments = 5, // 5 parcelas

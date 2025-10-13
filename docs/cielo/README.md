@@ -131,6 +131,7 @@ Adicione as permissões necessárias no `AndroidManifest.xml`:
 - [**Códigos de Pagamento**](./payment-codes.md) - Lista de todos os códigos disponíveis
 - [**Estruturas de Dados**](./data-structures.md) - Formatos de requisição e resposta
 - [**Funcionalidades de Impressão**](./printing.md) - Guia para impressão de textos e imagens
+- [**Credenciais**](./credentials.md) - Credenciais de exemplo para desenvolvimento
 
 ## 💻 Exemplos de Código
 
@@ -175,6 +176,6 @@ Esta documentação é parte do projeto PDV Piloto - Nebula Sistemas.
 
 ---
 
-**Última atualização**: Janeiro 2025  
+**Última atualização**: Outubro 2025  
 **Versão**: 1.0.0  
 **Compatibilidade**: Cielo LIO v1.10.2+, Cielo Smart

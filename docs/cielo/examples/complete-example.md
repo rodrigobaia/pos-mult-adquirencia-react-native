@@ -143,8 +143,8 @@ class PaymentActivity : AppCompatActivity() {
         
         // Criar requisição de pagamento
         val request = OrderRequest(
-            clientID = BuildConfig.CREDENTIALS_CLIENT_ID,
-            accessToken = BuildConfig.CREDENTIALS_ACCESS_TOKEN,
+            clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+            accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
             value = amountInCents,
             paymentCode = paymentMethod,
             installments = installments,
@@ -335,8 +335,8 @@ class TransactionDetailsActivity : AppCompatActivity() {
         // Implementar cancelamento
         val cancelRequest = CancelRequest(
             id = transaction.orderId,
-            clientID = BuildConfig.CREDENTIALS_CLIENT_ID,
-            accessToken = BuildConfig.CREDENTIALS_ACCESS_TOKEN,
+            clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+            accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
             cieloCode = transaction.cieloCode ?: "",
             authCode = transaction.authCode ?: "",
             value = transaction.amount

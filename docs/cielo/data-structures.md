@@ -302,8 +302,8 @@ val subAcquirer = SubAcquirer(
 )
 
 val request = OrderRequest(
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     value = 1000L,
     paymentCode = "DEBITO_AVISTA",
     installments = 0,
@@ -320,8 +320,8 @@ val request = OrderRequest(
 ```kotlin
 val cancelRequest = CancelRequest(
     id = "ba583f85-9252-48b5-8fed-12719ff058b9",
-    clientID = "SEU_CLIENT_ID",
-    accessToken = "SEU_ACCESS_TOKEN",
+    clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+    accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
     cieloCode = "799871",
     authCode = "140126",
     value = 1000L

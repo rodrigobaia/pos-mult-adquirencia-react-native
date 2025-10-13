@@ -94,8 +94,8 @@ class CancellationActivity : AppCompatActivity() {
         // 1. Criar requisição de cancelamento
         val request = CancelRequest(
             id = originalOrderId!!,
-            clientID = CLIENT_ID,
-            accessToken = ACCESS_TOKEN,
+            clientID = "hs7gR0uI2GbSynitwdGvfcjqAhVGajX9xmEVh4n8CJfQUjkUSN",
+            accessToken = "3b26iD3oEn3EDrqKjLAkc8UF6aTD9awBMHFTDa99NPbu539fh4",
             cieloCode = originalCieloCode!!,
             authCode = originalAuthCode!!,
             value = originalAmount!!
