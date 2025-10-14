@@ -34,17 +34,16 @@ def stoneManufacturers = [
     ]
 ]
 
-// ===== CIELO ADQUIRENTE (FUTURO) =====
+// ===== CIELO ADQUIRENTE =====
 def cieloManufacturers = [
-    // Exemplo para quando implementar Cielo:
-    // 'getnet': [
-    //     keystoreFile: '../manufacturers/cielo/getnet/getnet-keystore.properties',
-    //     signingConfig: '../manufacturers/cielo/getnet/getnet-signing-config.gradle'
-    // ],
-    // 'verifone': [
-    //     keystoreFile: '../manufacturers/cielo/verifone/verifone-keystore.properties',
-    //     signingConfig: '../manufacturers/cielo/verifone/verifone-signing-config.gradle'
-    // ]
+    'ingenico': [
+        keystoreFile: '../manufacturers/cielo/ingenico/ingenico-keystore.properties',
+        signingConfig: '../manufacturers/cielo/ingenico/ingenico-signing-config.gradle'
+    ],
+    'positivo': [
+        keystoreFile: '../manufacturers/cielo/positivo/positivo-keystore.properties',
+        signingConfig: '../manufacturers/cielo/positivo/positivo-signing-config.gradle'
+    ]
 ]
 
 // ===== PAGSEGURO ADQUIRENTE (FUTURO) =====
@@ -149,10 +148,34 @@ android {
     }
 
     /**
-     * Product Flavors para diferentes fabricantes Stone
+     * Product Flavors para diferentes adquirentes e fabricantes
      */
-    flavorDimensions "manufacturer"
+    flavorDimensions "acquirer", "manufacturer"
     productFlavors {
+        // ===== ADQUIRENTES =====
+        stone {
+            dimension "acquirer"
+            applicationIdSuffix ".stone"
+            versionNameSuffix "-stone"
+            
+            buildConfigField "String", "ACQUIRER_NAME", '"Stone"'
+            buildConfigField "String", "ACQUIRER_TYPE", '"stone"'
+            buildConfigField "boolean", "ENABLE_STONE", "true"
+            buildConfigField "boolean", "ENABLE_CIELO", "false"
+        }
+        
+        cielo {
+            dimension "acquirer"
+            applicationIdSuffix ".cielo"
+            versionNameSuffix "-cielo"
+            
+            buildConfigField "String", "ACQUIRER_NAME", '"Cielo"'
+            buildConfigField "String", "ACQUIRER_TYPE", '"cielo"'
+            buildConfigField "boolean", "ENABLE_STONE", "false"
+            buildConfigField "boolean", "ENABLE_CIELO", "true"
+        }
+        
+        // ===== FABRICANTES =====
         gertec {
             dimension "manufacturer"
             applicationIdSuffix ".gertec"
@@ -164,14 +187,16 @@ android {
             dimension "manufacturer"
             applicationIdSuffix ".ingenico"
             versionNameSuffix "-ingenico"
-            buildConfigField "String", "STONE_MANUFACTURER", '"ingenico"'
+            buildConfigField "String", "MANUFACTURER_NAME", '"Ingenico"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"ingenico"'
         }
         
         positivo {
             dimension "manufacturer"
             applicationIdSuffix ".positivo"
             versionNameSuffix "-positivo"
-            buildConfigField "String", "STONE_MANUFACTURER", '"positivo"'
+            buildConfigField "String", "MANUFACTURER_NAME", '"Positivo"'
+            buildConfigField "String", "MANUFACTURER_TYPE", '"positivo"'
         }
         
         sunmi {
@@ -278,6 +303,12 @@ dependencies {
     // Dependências comuns do Android
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
+    
+    // Dependência do módulo Cielo SDK
+    implementation project(':cielo-sdk')
+    
+    // Dependência do módulo Payment Core
+    implementation project(':payment-core')
     
     // Dependências de Debug (alinhado com Stone Demo)
     debugImplementation("br.com.stone.sdk.android:debugmode:4.0.3")

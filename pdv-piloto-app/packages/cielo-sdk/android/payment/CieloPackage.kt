@@ -6,7 +6,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
 
 /**
- * Package para registrar o módulo CieloBridge
+ * Package para registrar os módulos Cielo
  */
 class CieloPackage : ReactPackage {
 

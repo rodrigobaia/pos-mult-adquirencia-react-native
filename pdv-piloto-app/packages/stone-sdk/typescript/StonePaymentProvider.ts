@@ -33,7 +33,7 @@ export class StonePaymentProvider implements IPaymentProvider {
     const available = await this.isAvailable();
     if (!available) {
       throw new PaymentError(
-        'Stone app não está instalado neste dispositivo',
+        'Stone SDK não está disponível neste dispositivo',
         'STONE_NOT_AVAILABLE'
       );
     }
@@ -55,13 +55,21 @@ export class StonePaymentProvider implements IPaymentProvider {
       orderId,
     };
     
-    // Chamar native module
-    // Assinatura Kotlin aceita (amount, type, orderId)
+    // Chamar native module usando SDK Stone nativo
     try {
-      await (StoneBridge.requestPayment as any)(amountFormatted, stonePaymentType, orderId);
+      await (StoneBridge.requestPayment as any)(
+        amountFormatted, 
+        stonePaymentType, 
+        orderId,
+        request.installments || 1,
+        request.capture !== false // Default true
+      );
     } catch (e) {
-      // Compatibilidade com versões antigas (sem orderId)
-      await (StoneBridge.requestPayment as any)(amountFormatted, stonePaymentType);
+      console.error('Erro ao executar pagamento Stone:', e);
+      throw new PaymentError(
+        `Erro ao executar pagamento: ${e.message || e}`,
+        'PAYMENT_EXECUTION_ERROR'
+      );
     }
   }
   
@@ -80,9 +88,22 @@ export class StonePaymentProvider implements IPaymentProvider {
    */
   async isAvailable(): Promise<boolean> {
     try {
-      const installed = await StoneBridge.isStoneInstalled();
-      return installed === true;
-    } catch {
+      // Verificar se há pinpads conectados (como no projeto demo)
+      const pinpadCount = await StoneBridge.getPinpadListSize();
+      const hasPinpads = pinpadCount > 0;
+      
+      // Verificar se há sessão ativa
+      const hasActiveSession = await StoneBridge.hasActiveSession();
+      
+      console.log('🔍 Stone availability check:', {
+        pinpadCount,
+        hasPinpads,
+        hasActiveSession
+      });
+      
+      return hasPinpads && hasActiveSession;
+    } catch (error) {
+      console.error('Erro ao verificar disponibilidade Stone:', error);
       return false;
     }
   }

@@ -43,11 +43,12 @@ show_help() {
     echo ""
     echo "Parâmetros:"
     echo "  adquirente: stone | cielo"
-    echo "  fabricante: gertec | ingenico | positivo | sunmi | tectoy | getnet | rede | pagseguro"
+    echo "  fabricante: gertec | ingenico | positivo | sunmi | tectoy (para Stone)"
+    echo "  fabricante: ingenico | positivo (para Cielo)"
     echo ""
     echo "Exemplos:"
     echo "  $0 stone positivo"
-    echo "  $0 cielo getnet"
+    echo "  $0 cielo ingenico"
     echo ""
     echo "Este script irá:"
     echo "  1. Compilar o app para a adquirente especificada"
@@ -91,11 +92,12 @@ case $ACQUIRER in
         ;;
     cielo)
         case $MANUFACTURER in
-            getnet|rede|pagseguro)
+            ingenico|positivo)
                 ;;
             *)
                 print_error "Fabricante inválido para Cielo: $MANUFACTURER"
-                print_info "Fabricantes válidos para Cielo: getnet, rede, pagseguro"
+                print_info "Fabricantes válidos para Cielo: ingenico, positivo"
+                print_info "Dispositivos: L300/DX8000 (Ingenico), L400 (Positivo)"
                 exit 1
                 ;;
         esac

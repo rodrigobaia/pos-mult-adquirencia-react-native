@@ -1,0 +1,18 @@
+// Signing Configuration for Cielo LIO Positivo
+// Este arquivo é aplicado automaticamente pelo build.gradle
+
+android {
+    signingConfigs {
+        cieloPositivoRelease {
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file('manufacturers/cielo/positivo/positivo-keystore.properties')
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+    }
+}

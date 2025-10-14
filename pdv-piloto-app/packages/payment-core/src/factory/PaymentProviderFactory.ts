@@ -21,25 +21,46 @@ export class PaymentProviderFactory {
   
   /**
    * Retorna a adquirente configurada em tempo de compilação
-   * Esta informação vem do BuildConfig do Android
+   * Esta informação vem do package name do app
    */
   static getActiveAcquirer(): AcquirerType {
-    // Em tempo de compilação, apenas uma adquirente estará habilitada
-    // Isso é definido no build.gradle via BuildConfig
     try {
-      // Verificar se Stone está habilitada (definido em build.gradle)
+      // Usar o package name para determinar a adquirente
+      // Stone: br.com.nebulasistemas.pdvpilotoapp.stone.*
+      // Cielo: br.com.nebulasistemas.pdvpilotoapp.cielo.*
       const { NativeModules } = require('react-native');
+      const packageName = NativeModules.PlatformConstants?.appVersion || '';
+      
+      console.log('🔍 PaymentProviderFactory: Package name detected:', packageName);
+      
+      // Verificar se é build Cielo
+      if (packageName.includes('.cielo.')) {
+        console.log('✅ PaymentProviderFactory: Cielo build detected');
+        return AcquirerType.CIELO;
+      }
+      
+      // Verificar se é build Stone
+      if (packageName.includes('.stone.')) {
+        console.log('✅ PaymentProviderFactory: Stone build detected');
+        return AcquirerType.STONE;
+      }
+      
+      // Fallback: tentar detectar pelo BuildConfig se disponível
       if (NativeModules.BuildConfig?.ENABLE_STONE) {
+        console.log('✅ PaymentProviderFactory: Stone enabled via BuildConfig');
         return AcquirerType.STONE;
       }
       if (NativeModules.BuildConfig?.ENABLE_CIELO) {
+        console.log('✅ PaymentProviderFactory: Cielo enabled via BuildConfig');
         return AcquirerType.CIELO;
       }
+      
     } catch (error) {
-      console.warn('PaymentProviderFactory: BuildConfig não disponível, usando Stone como padrão');
+      console.warn('PaymentProviderFactory: Erro ao detectar adquirente:', error);
     }
     
     // Fallback para Stone (padrão)
+    console.log('⚠️ PaymentProviderFactory: Usando Stone como padrão');
     return AcquirerType.STONE;
   }
   

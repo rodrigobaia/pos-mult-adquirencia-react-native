@@ -4,14 +4,22 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import com.facebook.react.bridge.*
+import com.facebook.react.modules.core.DeviceEventManagerModule
+import stone.utils.Stone
+import stone.providers.TransactionProvider
+import stone.database.transaction.TransactionObject
+import stone.application.enums.TypeOfTransactionEnum
+import stone.application.enums.InstalmentTransactionEnum
+import stone.application.interfaces.StoneActionCallback
+import stone.application.enums.Action
 
 /**
  * Native Module Stone Payment
  * 
- * Integração com Stone via Deep Link
+ * Integração com Stone SDK nativo (baseado no projeto demo oficial)
  */
 class StoneBridge(private val reactContext: ReactApplicationContext) : 
-    ReactContextBaseJavaModule(reactContext) {
+    ReactContextBaseJavaModule(reactContext), StoneActionCallback {
     
     companion object {
         const val MODULE_NAME = "StoneBridge"
@@ -20,48 +28,54 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
     override fun getName(): String = MODULE_NAME
     
     @ReactMethod
-    fun requestPayment(amount: String, type: String, orderIdArg: String?, promise: Promise) {
+    fun requestPayment(amount: String, type: String, orderIdArg: String?, installments: Int?, capture: Boolean?, promise: Promise) {
         try {
-            val activity = reactContext.currentActivity
-            
-            if (activity == null) {
-                promise.reject("NO_ACTIVITY", "Activity is null")
+            // Verificar se há pinpads conectados
+            if (Stone.getPinpadListSize() <= 0) {
+                promise.reject("NO_PINPAD", "Nenhum pinpad conectado")
                 return
             }
             
-            // Construir URI usando UriBuilder (padrão Stone - conforme documentação oficial)
-            val uriBuilder = Uri.Builder()
-            uriBuilder.authority("pay")
-            uriBuilder.scheme("payment-app")
-            uriBuilder.appendQueryParameter("return_scheme", "stone_payment_scheme")
-            uriBuilder.appendQueryParameter("amount", amount)
-            uriBuilder.appendQueryParameter("transaction_type", type.uppercase())
-            uriBuilder.appendQueryParameter("editable_amount", "0")
-            
-            // Para CRÉDITO: forçar à vista com installment_type=NONE
-            // Para DÉBITO: NÃO enviar installment_type (Stone rejeita se enviar)
-            if (type.uppercase() == "CREDIT") {
-                uriBuilder.appendQueryParameter("installment_type", "NONE")
-            }
-            
-            val orderId = orderIdArg?.takeIf { it.isNotBlank() } ?: System.currentTimeMillis().toString()
-            uriBuilder.appendQueryParameter("order_id", orderId)
-            
-            // Criar Intent com ACTION_VIEW
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                data = uriBuilder.build()
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            }
-            
-            val resolvedActivity = intent.resolveActivity(activity.packageManager)
-            
-            if (resolvedActivity == null) {
-                promise.reject("STONE_NOT_INSTALLED", "Stone payment app is not installed")
+            // Verificar se há sessão ativa
+            if (Stone.sessionApplication == null || Stone.sessionApplication.userModelList == null || Stone.sessionApplication.userModelList.isEmpty()) {
+                promise.reject("NO_SESSION", "Nenhuma sessão Stone ativa")
                 return
             }
             
-            activity.startActivity(intent)
-            promise.resolve(null)
+            // Criar TransactionObject (como no projeto demo)
+            val transactionObject = TransactionObject().apply {
+                this.amount = amount
+                this.typeOfTransaction = when (type.lowercase()) {
+                    "credit" -> TypeOfTransactionEnum.CREDIT
+                    "debit" -> TypeOfTransactionEnum.DEBIT
+                    "pix" -> TypeOfTransactionEnum.PIX
+                    else -> TypeOfTransactionEnum.CREDIT
+                }
+                this.instalmentTransaction = InstalmentTransactionEnum.getAt((installments ?: 1) - 1)
+                this.setCapture(capture ?: true)
+                this.initiatorTransactionKey = orderIdArg
+            }
+            
+            // Criar TransactionProvider (como no projeto demo)
+            val transactionProvider = TransactionProvider(
+                reactContext,
+                transactionObject,
+                Stone.getUserModel(0), // Primeiro usuário
+                Stone.getPinpadFromListAt(0) // Primeiro pinpad
+            )
+            
+            // Configurar callback
+            transactionProvider.connectionCallback = this
+            
+            // Executar em thread separada (como no projeto demo)
+            Thread {
+                try {
+                    transactionProvider.execute()
+                    promise.resolve(null)
+                } catch (e: Exception) {
+                    promise.reject("PAYMENT_EXECUTION_ERROR", e.message, e)
+                }
+            }.start()
             
         } catch (e: Exception) {
             promise.reject("PAYMENT_ERROR", e.message, e)
@@ -69,21 +83,33 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
     }
     
     @ReactMethod
+    fun getPinpadListSize(promise: Promise) {
+        try {
+            val size = Stone.getPinpadListSize()
+            promise.resolve(size)
+        } catch (e: Exception) {
+            promise.reject("PINPAD_CHECK_ERROR", e.message, e)
+        }
+    }
+    
+    @ReactMethod
+    fun hasActiveSession(promise: Promise) {
+        try {
+            val hasSession = Stone.sessionApplication != null && 
+                           Stone.sessionApplication.userModelList != null && 
+                           !Stone.sessionApplication.userModelList.isEmpty()
+            promise.resolve(hasSession)
+        } catch (e: Exception) {
+            promise.reject("SESSION_CHECK_ERROR", e.message, e)
+        }
+    }
+    
+    @ReactMethod
     fun isStoneInstalled(promise: Promise) {
         try {
-            val activity = reactContext.currentActivity
-            if (activity == null) {
-                promise.resolve(false)
-                return
-            }
-            
-            try {
-                // Verificar se app de pagamento Stone está instalado
-                activity.packageManager.getPackageInfo("br.com.stone.posandroid.acquirerapp", 0)
-                promise.resolve(true)
-            } catch (e: Exception) {
-                promise.resolve(false)
-            }
+            val hasPinpads = Stone.getPinpadListSize() > 0
+            val hasSession = Stone.sessionApplication != null
+            promise.resolve(hasPinpads && hasSession)
         } catch (e: Exception) {
             promise.reject("CHECK_ERROR", e.message, e)
         }
@@ -134,5 +160,39 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
         } catch (e: Exception) {
             promise.reject("GET_PENDING_ERROR", e.message, e)
         }
+    }
+    
+    // Implementação dos callbacks do StoneActionCallback
+    override fun onSuccess() {
+        android.util.Log.d("StoneBridge", "✅ Payment successful")
+        // Emitir evento para React Native
+        val params = Arguments.createMap().apply {
+            putBoolean("success", true)
+            putString("message", "Pagamento realizado com sucesso")
+        }
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+            .emit("paymentReceived", params)
+    }
+    
+    override fun onError() {
+        android.util.Log.e("StoneBridge", "❌ Payment error")
+        // Emitir evento de erro para React Native
+        val params = Arguments.createMap().apply {
+            putBoolean("success", false)
+            putString("message", "Erro no pagamento")
+        }
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+            .emit("paymentReceived", params)
+    }
+    
+    override fun onStatusChanged(action: Action) {
+        android.util.Log.d("StoneBridge", "🔄 Payment status changed: ${action.name}")
+        // Emitir evento de status para React Native
+        val params = Arguments.createMap().apply {
+            putString("status", action.name)
+            putString("message", "Status: ${action.name}")
+        }
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+            .emit("paymentStatusChanged", params)
     }
 }

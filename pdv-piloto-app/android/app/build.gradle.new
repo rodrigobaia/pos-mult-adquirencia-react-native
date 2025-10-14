@@ -24,7 +24,7 @@ def acquirers = [
     'cielo': [
         name: 'Cielo',
         packageSuffix: 'cielo', 
-        manufacturers: ['getnet', 'rede', 'pagseguro'] // Exemplo para futuro
+        manufacturers: ['ingenico', 'positivo'] // Fabricantes Cielo LIO
     ]
 ]
 
@@ -114,15 +114,9 @@ android {
             buildConfigField "String", "MANUFACTURER_TYPE", '"tectoy"'
         }
         
-        // ===== FABRICANTES CIELO (FUTURO) =====
-        getnet {
-            dimension "manufacturer"
-            applicationIdSuffix ".getnet"
-            versionNameSuffix "-getnet"
-            
-            buildConfigField "String", "MANUFACTURER_NAME", '"GetNet"'
-            buildConfigField "String", "MANUFACTURER_TYPE", '"getnet"'
-        }
+        // ===== FABRICANTES CIELO =====
+        // Nota: ingenico e positivo já estão definidos acima para Stone
+        // Eles são reutilizados para Cielo também
     }
 
     // Configurações de Build

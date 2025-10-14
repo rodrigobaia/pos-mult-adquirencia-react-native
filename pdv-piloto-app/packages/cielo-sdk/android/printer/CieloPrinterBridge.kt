@@ -1,22 +1,18 @@
 package br.com.nebulasistemas.pdvpilotoapp.cielo.printer
 
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReadableMap
 import android.content.Intent
 import android.net.Uri
+import android.util.Base64
 import android.util.Log
+import com.facebook.react.bridge.*
 
 /**
- * Bridge para impressão via Cielo LIO
+ * Bridge para impressão via Cielo LIO Deep Link
  */
 class CieloPrinterBridge(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     companion object {
         private const val TAG = "CieloPrinterBridge"
-        private const val CIELO_SCHEME = "cielolio"
     }
 
     override fun getName(): String {
@@ -24,128 +20,70 @@ class CieloPrinterBridge(reactContext: ReactApplicationContext) : ReactContextBa
     }
 
     /**
-     * Imprime texto via Deep Link da Cielo
+     * Imprime texto via Deep Link Cielo
      */
     @ReactMethod
-    fun printText(printData: ReadableMap, promise: Promise) {
+    fun printText(text: String, promise: Promise) {
         try {
-            Log.d(TAG, "Imprimindo texto via Cielo: $printData")
-
-            val text = printData.getString("text") ?: ""
-            val fontSize = printData.getInt("fontSize")
-            val alignment = printData.getString("alignment") ?: "LEFT"
-            val bold = printData.getBoolean("bold")
-
-            val payload = buildPrintPayload("PRINT_TEXT", text, fontSize, alignment, bold)
-            val deepLinkUri = buildDeepLinkUri("PRINT", payload)
+            Log.d(TAG, "Solicitando impressão de texto via Cielo")
             
-            Log.d(TAG, "Deep Link URI: $deepLinkUri")
-
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(deepLinkUri))
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            // Construir payload JSON para impressão
+            val payload = buildPrintPayload(text)
             
-            currentActivity?.startActivity(intent)
+            // Construir URI do Deep Link
+            val uri = buildPrintUri(payload)
             
-            promise.resolve(true)
+            // Abrir Deep Link
+            openDeepLink(uri)
+            
+            promise.resolve("Impressão solicitada via Cielo Deep Link")
             
         } catch (e: Exception) {
-            Log.e(TAG, "Erro ao imprimir texto via Cielo", e)
-            promise.reject("CIELO_PRINT_ERROR", e.message, e)
+            Log.e(TAG, "Erro ao solicitar impressão Cielo", e)
+            promise.reject("CIELO_PRINT_ERROR", "Erro ao solicitar impressão: ${e.message}")
         }
     }
 
     /**
-     * Imprime imagem via Deep Link da Cielo
+     * Constrói o payload JSON para impressão
      */
-    @ReactMethod
-    fun printImage(imagePath: String, promise: Promise) {
-        try {
-            Log.d(TAG, "Imprimindo imagem via Cielo: $imagePath")
-
-            val payload = buildImagePayload(imagePath)
-            val deepLinkUri = buildDeepLinkUri("PRINT", payload)
-            
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(deepLinkUri))
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            
-            currentActivity?.startActivity(intent)
-            
-            promise.resolve(true)
-            
-        } catch (e: Exception) {
-            Log.e(TAG, "Erro ao imprimir imagem via Cielo", e)
-            promise.reject("CIELO_PRINT_IMAGE_ERROR", e.message, e)
+    private fun buildPrintPayload(text: String): String {
+        return """
+        {
+            "operation": "PRINT_TEXT",
+            "styles": [{}],
+            "value": ["$text"]
         }
+        """.trimIndent()
     }
 
     /**
-     * Verifica se impressão Cielo está disponível
+     * Constrói a URI do Deep Link para impressão
      */
-    @ReactMethod
-    fun isAvailable(promise: Promise) {
-        try {
-            val testUri = "$CIELO_SCHEME://print"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(testUri))
-            
-            val packageManager = reactApplicationContext.packageManager
-            val activities = packageManager.queryIntentActivities(intent, 0)
-            
-            val isAvailable = activities.isNotEmpty()
-            Log.d(TAG, "Cielo LIO impressão disponível: $isAvailable")
-            
-            promise.resolve(isAvailable)
-            
-        } catch (e: Exception) {
-            Log.e(TAG, "Erro ao verificar disponibilidade impressão Cielo", e)
-            promise.resolve(false)
-        }
-    }
-
-    /**
-     * Constrói payload para impressão de texto
-     */
-    private fun buildPrintPayload(
-        operation: String,
-        text: String,
-        fontSize: Int,
-        alignment: String,
-        bold: Boolean
-    ): String {
-        val payload = mapOf(
-            "operation" to operation,
-            "value" to text,
-            "styles" to mapOf(
-                "fontSize" to fontSize,
-                "alignment" to alignment,
-                "bold" to bold
-            )
+    private fun buildPrintUri(payload: String): String {
+        val base64Payload = Base64.encodeToString(
+            payload.toByteArray(),
+            Base64.NO_WRAP
         )
         
-        return android.util.Base64.encodeToString(
-            payload.toString().toByteArray(),
-            android.util.Base64.NO_WRAP
-        )
+        return "lio://print?request=$base64Payload&urlCallback=order://response"
     }
 
     /**
-     * Constrói payload para impressão de imagem
+     * Abre o Deep Link
      */
-    private fun buildImagePayload(imagePath: String): String {
-        val payload = mapOf(
-            "operation" to "PRINT_IMAGE",
-            "value" to imagePath
-        )
-        
-        return android.util.Base64.encodeToString(
-            payload.toString().toByteArray(),
-            android.util.Base64.NO_WRAP
-        )
-    }
-
-    /**
-     * Constrói URI do Deep Link
-     */
-    private fun buildDeepLinkUri(action: String, payload: String): String {
-        return "$CIELO_SCHEME://print?action=$action&payload=$payload"
+    private fun openDeepLink(uri: String) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            reactApplicationContext.startActivity(intent)
+            
+            Log.d(TAG, "Deep Link de impressão aberto: $uri")
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "Erro ao abrir Deep Link de impressão", e)
+            throw e
+        }
     }
 }
+

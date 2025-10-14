@@ -75,9 +75,8 @@ static getActiveAcquirer(): AcquirerType {
 - `stone-tectoy`: APK para dispositivos Stone Tectoy
 
 ### **Cielo Adquirente**
-- `cielo-getnet`: APK para dispositivos Cielo GetNet
-- `cielo-rede`: APK para dispositivos Cielo Rede
-- `cielo-pagseguro`: APK para dispositivos Cielo PagSeguro
+- `cielo-ingenico`: APK para dispositivos Cielo LIO Ingenico (L300, DX8000)
+- `cielo-positivo`: APK para dispositivos Cielo LIO Positivo (L400)
 
 ## 🚀 **Scripts de Build**
 
@@ -89,7 +88,7 @@ static getActiveAcquirer(): AcquirerType {
 # Exemplos
 ./scripts/build-by-acquirer.sh stone positivo debug
 ./scripts/build-by-acquirer.sh stone positivo release
-./scripts/build-by-acquirer.sh cielo getnet debug
+./scripts/build-by-acquirer.sh cielo ingenico debug
 ```
 
 ### **Desenvolvimento por Adquirente**
@@ -99,7 +98,7 @@ static getActiveAcquirer(): AcquirerType {
 
 # Exemplos
 ./scripts/dev-by-acquirer.sh stone positivo
-./scripts/dev-by-acquirer.sh cielo getnet
+./scripts/dev-by-acquirer.sh cielo ingenico
 ```
 
 ## 📋 **Vantagens**
@@ -133,6 +132,9 @@ adb devices
 
 # Executar em modo desenvolvimento
 ./scripts/dev-by-acquirer.sh stone positivo
+
+# Ou para Cielo LIO Ingenico
+./scripts/dev-by-acquirer.sh cielo ingenico
 ```
 
 ### **2. Teste**
@@ -151,6 +153,10 @@ adb install build-outputs/pdv-piloto-stone-v1-1.0.0-positivo-debug.apk
 
 # APK assinado pronto para distribuição
 # build-outputs/pdv-piloto-stone-v1-1.0.0-positivo-release.apk
+
+# Ou para Cielo LIO Ingenico
+./scripts/build-by-acquirer.sh cielo ingenico release
+# build-outputs/pdv-piloto-cielo-v1-1.0.0-ingenico-release.apk
 ```
 
 ## 📁 **Estrutura de Arquivos**
@@ -169,7 +175,14 @@ pdv-piloto-app/
 │   ├── app/build.gradle          # Configuração de flavors
 │   └── manufacturers/            # Keystores por fabricante
 │       ├── stone/
+│       │   ├── gertec/
+│       │   ├── ingenico/
+│       │   ├── positivo/
+│       │   ├── sunmi/
+│       │   └── tectoy/
 │       └── cielo/
+│           ├── ingenico/         # L300, DX8000
+│           └── positivo/         # L400
 └── scripts/
     ├── build-by-acquirer.sh      # Build por adquirente
     └── dev-by-acquirer.sh        # Desenvolvimento por adquirente

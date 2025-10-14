@@ -4,3 +4,11 @@ extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autoli
 rootProject.name = 'PilotoApp'
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Incluir pacotes Cielo
+include ':cielo-sdk'
+project(':cielo-sdk').projectDir = new File('../packages/cielo-sdk/android')
+
+// Incluir payment-core
+include ':payment-core'
+project(':payment-core').projectDir = new File('../packages/payment-core/android')

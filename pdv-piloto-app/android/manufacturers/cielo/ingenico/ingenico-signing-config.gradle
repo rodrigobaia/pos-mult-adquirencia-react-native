@@ -1,0 +1,18 @@
+// Signing Configuration for Cielo LIO Ingenico
+// Este arquivo é aplicado automaticamente pelo build.gradle
+
+android {
+    signingConfigs {
+        cieloIngenicoRelease {
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file('manufacturers/cielo/ingenico/ingenico-keystore.properties')
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+            }
+        }
+    }
+}
