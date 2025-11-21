@@ -65,3 +65,22 @@ export interface PrinterStatus {
   /** Erro (se houver) */
   error?: string;
 }
+
+/**
+ * Tipos de fonte para impressão
+ */
+export enum PrintFont {
+  NORMAL = 'normal',
+  BOLD = 'bold',
+  LARGE = 'large',
+  SMALL = 'small',
+}
+
+/**
+ * Alinhamento do texto
+ */
+export enum PrintAlignment {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
+}

@@ -122,11 +122,17 @@ export class PaymentProviderFactory {
    * Cria uma nova instância de provider
    */
   private static createProvider(acquirer: AcquirerType): IPaymentProvider {
+    console.log('🏭 createProvider chamado para:', acquirer);
+    
     switch (acquirer) {
       case AcquirerType.STONE:
+        console.log('🏭 Criando StonePaymentProvider...');
         // Lazy load do módulo Stone
         const { StonePaymentProvider } = require('../../../stone-sdk/typescript/StonePaymentProvider');
-        return new StonePaymentProvider();
+        console.log('🏭 StonePaymentProvider importado:', !!StonePaymentProvider);
+        const stoneProvider = new StonePaymentProvider();
+        console.log('🏭 StonePaymentProvider criado:', !!stoneProvider);
+        return stoneProvider;
         
       case AcquirerType.CIELO:
         // Lazy load do módulo Cielo

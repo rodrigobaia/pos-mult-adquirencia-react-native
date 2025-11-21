@@ -44,16 +44,16 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
             
             // Criar TransactionObject (como no projeto demo)
             val transactionObject = TransactionObject().apply {
-                this.amount = amount
-                this.typeOfTransaction = when (type.lowercase()) {
+                setAmount(amount)
+                setTypeOfTransaction(when (type.lowercase()) {
                     "credit" -> TypeOfTransactionEnum.CREDIT
                     "debit" -> TypeOfTransactionEnum.DEBIT
                     "pix" -> TypeOfTransactionEnum.PIX
                     else -> TypeOfTransactionEnum.CREDIT
-                }
-                this.instalmentTransaction = InstalmentTransactionEnum.getAt((installments ?: 1) - 1)
-                this.setCapture(capture ?: true)
-                this.initiatorTransactionKey = orderIdArg
+                })
+                setInstalmentTransaction(InstalmentTransactionEnum.getAt((installments ?: 1) - 1))
+                setCapture(capture ?: true)
+                setInitiatorTransactionKey(orderIdArg)
             }
             
             // Criar TransactionProvider (como no projeto demo)
@@ -65,7 +65,7 @@ class StoneBridge(private val reactContext: ReactApplicationContext) :
             )
             
             // Configurar callback
-            transactionProvider.connectionCallback = this
+            transactionProvider.setConnectionCallback(this)
             
             // Executar em thread separada (como no projeto demo)
             Thread {

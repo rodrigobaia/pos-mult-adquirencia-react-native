@@ -1,50 +1,101 @@
-import {
-  PaymentRequest,
-  PaymentResponse,
-  PaymentResult,
-} from '../models/PaymentTypes';
+import { PaymentRequest, PaymentType } from '../models/PaymentTypes';
+import { PaymentResponse, PaymentResult, PaymentError } from '../models/PaymentResult';
+import { AcquirerType, DeepLinkConfig } from '../models/AcquirerTypes';
 
 /**
- * Interface de Payment Provider
- * 
- * Todas as adquirentes (Stone, Cielo, PagSeguro, etc) devem implementar esta interface
+ * Interface principal para providers de pagamento
+ * TODOS os SDKs de adquirente devem implementar esta interface
  */
 export interface IPaymentProvider {
+  // === IDENTIFICAÇÃO ===
   /**
-   * Inicia uma requisição de pagamento
-   * 
-   * @param request - Dados do pagamento
-   * @returns Promise que resolve quando o pagamento é iniciado (não necessariamente concluído)
+   * Retorna o tipo da adquirente
    */
-  requestPayment(request: PaymentRequest): Promise<void>;
+  getAcquirerType(): AcquirerType;
   
   /**
-   * Cancela uma transação
-   * 
-   * @param transactionId - ID da transação a cancelar
-   * @returns Promise que resolve quando o cancelamento for concluído
+   * Retorna o nome da adquirente
    */
-  cancelTransaction(transactionId: string): Promise<PaymentResponse>;
+  getAcquirerName(): string;
   
   /**
-   * Verifica se o provider está disponível no dispositivo
-   * 
-   * @returns Promise<boolean> - true se disponível
+   * Retorna o fabricante do dispositivo
+   */
+  getManufacturer(): string;
+
+  // === DISPONIBILIDADE ===
+  /**
+   * Verifica se a adquirente está disponível no dispositivo
+   * @returns Promise<boolean> - true se disponível, false caso contrário
    */
   isAvailable(): Promise<boolean>;
   
   /**
-   * Registra callback para quando o pagamento for concluído
-   * 
-   * @param callback - Função a ser chamada quando pagamento retornar
-   * @returns Função para remover o listener
+   * Retorna os tipos de pagamento suportados
+   * @returns PaymentType[] - Array com tipos suportados
    */
-  onPaymentReceived(
-    callback: (result: PaymentResult) => void
-  ): () => void;
+  getSupportedPaymentTypes(): PaymentType[];
+
+  // === PAGAMENTO ===
+  /**
+   * Solicita um pagamento
+   * @param request - Dados do pagamento
+   * @returns Promise<void> - Resolve quando pagamento é iniciado
+   */
+  requestPayment(request: PaymentRequest): Promise<void>;
   
   /**
-   * Retorna informações sobre o provider
+   * Cancela um pagamento em andamento
+   * @returns Promise<void> - Resolve quando cancelamento é processado
+   */
+  cancelPayment(): Promise<void>;
+  
+  /**
+   * Finaliza um pagamento (confirma ou cancela)
+   * @param confirm - true para confirmar, false para cancelar
+   * @returns Promise<void>
+   */
+  finalizePayment(confirm: boolean): Promise<void>;
+
+  // === CONFIGURAÇÃO ===
+  /**
+   * Retorna configuração de Deep Link
+   * @returns DeepLinkConfig - Configuração para Deep Links
+   */
+  getDeepLinkConfig(): DeepLinkConfig;
+  
+  /**
+   * Configura credenciais da adquirente
+   * @param credentials - Credenciais específicas
+   */
+  setCredentials(credentials: any): void;
+
+  // === EVENTOS ===
+  /**
+   * Registra callback para resposta de pagamento
+   * @param callback - Função chamada quando pagamento é processado
+   */
+  onPaymentResponse(callback: (result: PaymentResult) => void): void;
+  
+  /**
+   * Registra callback para erro de pagamento
+   * @param callback - Função chamada quando ocorre erro
+   */
+  onPaymentError(callback: (error: PaymentError) => void): void;
+  
+  /**
+   * Remove todos os callbacks registrados
+   */
+  removeAllCallbacks(): void;
+
+  // === COMPATIBILIDADE (MÉTODOS LEGADOS) ===
+  /**
+   * @deprecated Use onPaymentResponse() em vez disso
+   */
+  onPaymentReceived(callback: (result: PaymentResult) => void): () => void;
+  
+  /**
+   * @deprecated Use getAcquirerName() em vez disso
    */
   getInfo(): ProviderInfo;
 }

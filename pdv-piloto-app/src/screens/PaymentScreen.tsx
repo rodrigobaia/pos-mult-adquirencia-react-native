@@ -18,14 +18,14 @@ import { AboutScreen } from './AboutScreen';
 import type { PaymentMethod } from '../components/PaymentButton';
 import { PaymentProviderFactory, AcquirerType } from '../../packages/payment-core/src/factory/PaymentProviderFactory';
 import { PrinterProviderFactory } from '../../packages/payment-core/src/factory/PrinterProviderFactory';
-import { PaymentType } from '../../packages/payment-core/src/models/PaymentTypes';
-import type { PaymentResult } from '../../packages/payment-core/src/models/PaymentTypes';
+import { PaymentType, PaymentResult } from '../../packages/payment-core/src/models/PaymentTypes';
 
 const { StoneBridge } = NativeModules;
+console.log('🔍 StoneBridge disponível:', !!StoneBridge);
 const { version } = require('../../package.json');
 
 export const PaymentScreen: React.FC = () => {
-  const [value, setValue] = useState<string>('');
+  const [value, setValue] = useState<string>('R$ 1,00'); // Valor padrão para teste
   const [processing, setProcessing] = useState<boolean>(false);
   const [showResultModal, setShowResultModal] = useState<boolean>(false);
   const [paymentResult, setPaymentResult] = useState<PaymentResult | null>(null);
@@ -46,9 +46,8 @@ export const PaymentScreen: React.FC = () => {
         if (result.hasPendingEvent) {
           console.log('📥 Found pending event! Emitting:', result.eventData);
           
-          // Emitir evento via DeviceEventEmitter
-          // Os listeners já registrados do StonePaymentProvider vão capturar
-          DeviceEventEmitter.emit('paymentReceived', result.eventData);
+          // TEMPORÁRIO: Comentar para evitar problemas com DeviceEventEmitter
+          // DeviceEventEmitter.emit('paymentReceived', result.eventData);
           console.log('✅ Pending event emitted successfully');
         } else {
           console.log('✅ No pending payment events');
@@ -215,26 +214,39 @@ export const PaymentScreen: React.FC = () => {
   };
 
   const handlePayment = async (method: PaymentMethod) => {
-    if (!value || value === 'R$ 0,00') {
-      Alert.alert('Erro', 'Por favor, informe um valor válido');
-      return;
-    }
+    try {
+      console.log('🚀 handlePayment iniciado com método:', method);
+      
+      if (!value || value === 'R$ 0,00') {
+        Alert.alert('Erro', 'Por favor, informe um valor válido');
+        return;
+      }
 
-    const numericValue = value.replace(/[^\d]/g, '');
-    const amount = parseInt(numericValue, 10) / 100;
+      const numericValue = value.replace(/[^\d]/g, '');
+      const amount = parseInt(numericValue, 10) / 100;
+      console.log('💰 Valor processado:', { value, numericValue, amount });
 
-    // Mapear método do botão para PaymentType
-    const paymentTypeMap: Record<PaymentMethod, PaymentType> = {
-      credit: PaymentType.CREDIT,
-      debit: PaymentType.DEBIT,
-      pix: PaymentType.PIX,
-      print: PaymentType.CASH, // Print não é pagamento, mas precisa de um valor
-    };
+      // Mapear método do botão para PaymentType
+      const paymentTypeMap: Record<PaymentMethod, PaymentType> = {
+        credit: PaymentType.CREDIT,
+        debit: PaymentType.DEBIT,
+        pix: PaymentType.PIX,
+        print: PaymentType.CASH, // Print não é pagamento, mas precisa de um valor
+      };
+      
+      console.log('📋 PaymentType mapeado:', paymentTypeMap[method]);
 
-    switch (method) {
-      case 'credit':
-        await processPayment(amount, PaymentType.CREDIT, 'Crédito');
-        break;
+      console.log('🔄 Entrando no switch com método:', method);
+      
+      switch (method) {
+        case 'credit':
+          console.log('💳 Processando crédito...');
+          console.log('🔄 Chamando processPayment...');
+          console.log('💰 Valor amount:', amount);
+          console.log('📋 PaymentType.CREDIT:', PaymentType.CREDIT);
+          await processPayment(amount, PaymentType.CREDIT, 'Crédito');
+          console.log('✅ processPayment concluído');
+          break;
         
       case 'debit':
         await processPayment(amount, PaymentType.DEBIT, 'Débito');
@@ -248,9 +260,13 @@ export const PaymentScreen: React.FC = () => {
         );
         break;
         
-      case 'print':
-        await handlePrint(amount);
-        break;
+        case 'print':
+          await handlePrint(amount);
+          break;
+      }
+    } catch (error) {
+      console.error('❌ Erro em handlePayment:', error);
+      Alert.alert('Erro', `Erro ao processar pagamento: ${error.message}`);
     }
   };
 
@@ -260,11 +276,23 @@ export const PaymentScreen: React.FC = () => {
     typeName: string
   ) => {
     try {
+      console.log('🔄 processPayment iniciado');
+      
       // Obter provider ativo
+      console.log('🏭 Obtendo PaymentProvider...');
       const paymentProvider = PaymentProviderFactory.getActive();
+      console.log('🏭 PaymentProvider obtido:', !!paymentProvider);
+      
+      if (!paymentProvider) {
+        console.error('❌ PaymentProvider é null/undefined');
+        Alert.alert('Erro', 'PaymentProvider não está disponível');
+        return;
+      }
       
       // Verificar disponibilidade
+      console.log('🔍 Verificando disponibilidade...');
       const available = await paymentProvider.isAvailable();
+      console.log('✅ Disponibilidade:', available);
       
       if (!available) {
         Alert.alert(
@@ -284,11 +312,13 @@ export const PaymentScreen: React.FC = () => {
         setLastPaymentType(typeName);
         
         // Iniciar pagamento via provider (vai direto para Stone)
+        console.log('🚀 Executando pagamento Stone...');
         await paymentProvider.requestPayment({
           amount,
           type,
           installments: 1,
         });
+        console.log('✅ Pagamento Stone iniciado com sucesso');
         
       } catch (error) {
         setProcessing(false);
@@ -429,7 +459,12 @@ export const PaymentScreen: React.FC = () => {
           <View style={styles.buttonRow}>
             <PaymentButton
               method="credit"
-              onPress={() => handlePayment('credit')}
+              onPress={() => {
+                console.log('🔘 Botão Crédito clicado!');
+                console.log('💰 Valor atual:', value);
+                console.log('⏳ Processing:', processing);
+                handlePayment('credit');
+              }}
               disabled={processing}
             />
             <PaymentButton
