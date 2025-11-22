@@ -120,8 +120,9 @@ android {
         applicationId "br.com.nebulasistemas.pdvpilotoapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0.0"
+        // Versão centralizada em android/version.properties
+        versionCode rootProject.ext.appVersionCode
+        versionName rootProject.ext.appVersionName + (rootProject.ext.appVersionNameSuffix ? " ${rootProject.ext.appVersionNameSuffix}" : "")
     }
     
     /**

@@ -1,0 +1,16 @@
+# ============================================================================
+# CONFIGURAÇÃO DE VERSÃO DO APLICATIVO (TEMPLATE)
+# ============================================================================
+# 
+# Copie este arquivo para version.properties e ajuste os valores conforme necessário.
+# O arquivo version.properties não deve ser commitado no git (adicione ao .gitignore).
+#
+# ============================================================================
+
+# Versão do aplicativo Android
+VERSION_CODE=1
+VERSION_NAME=1.0.0
+
+# Versão com sufixo de release (opcional)
+# VERSION_NAME_SUFFIX=Release 1
+

@@ -20,6 +20,22 @@ buildscript {
             localProp.load(new FileInputStream(rootProject.file(fileName)))
         }
         
+        // ===== CONFIGURAÇÃO DE VERSÃO =====
+        versionProp = new Properties()
+        versionFileName = 'version.properties'
+        if (project.rootProject.file(versionFileName).exists()) {
+            versionProp.load(new FileInputStream(rootProject.file(versionFileName)))
+            appVersionCode = versionProp.getProperty('VERSION_CODE', '1').toInteger()
+            appVersionName = versionProp.getProperty('VERSION_NAME', '1.0.0')
+            appVersionNameSuffix = versionProp.getProperty('VERSION_NAME_SUFFIX', '')
+        } else {
+            // Valores padrão se o arquivo não existir
+            appVersionCode = 1
+            appVersionName = '1.0.0'
+            appVersionNameSuffix = ''
+            println "⚠️ Arquivo version.properties não encontrado. Usando valores padrão."
+        }
+        
         // ===== TOKENS DE ACESSO =====
         // Stone PackageCloud
         packageCloudReadToken = System.env.PACKAGECLOUD_READ_TOKEN != null ? 
